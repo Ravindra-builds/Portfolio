@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
 
   const navLinks = [
     { name: 'About', href: '#about' },
@@ -39,13 +40,13 @@ const Navbar = () => {
           
           <div className="hidden md:flex items-center space-x-4">
             <a href="https://github.com/Ravindra-builds" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <FaGithub size={20} />
+              <FaGithub size={20} className='hover:scale-110'/>
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <FaLinkedin size={20} />
+              <FaLinkedin size={20} className='hover:scale-110' />
             </a>
             <a href="mailto:email@example.com" className="text-gray-400 hover:text-white transition-colors">
-              <Mail size={20} />
+              <Mail size={20} className='hover:scale-110 ]' />
             </a>
           </div>
 

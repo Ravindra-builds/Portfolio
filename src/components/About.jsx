@@ -1,30 +1,29 @@
-
 import { User, Code, Zap } from 'lucide-react';
 import {FaHtml5,FaCss3,FaJsSquare ,FaNodeJs, FaReact,FaBootstrap,FaGitAlt ,FaGithub} from "react-icons/fa";
 import { SiExpress,SiSocketdotio,SiTailwindcss,SiMongodb  } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
 
-import mineImg from "../assets/gpt-mine-image.png";
+import mineImg from "../assets/ravindra-img.png";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-gray-950">
+    <section id="about" className="py-20 bg-gray-950 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h2>
+        <div className="text-center mb-16 slideDown">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 slideRight">About Me</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center ">
-          {/* Image Placeholder */}
-          <div className="relative group">
+          {/* Image */}
+          <div className="relative group slideRight">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative aspect-square rounded-lg bg-gray-900 overflow-hidden border border-gray-800 flex items-center justify-center">
-              <img src={mineImg} alt="Ravindra Yadav" className="w-full h-full object-cover" />
+              <img src={mineImg} alt="Ravindra Yadav" className="w-full h-full object-cover overflow-hidden" />
             </div>
           </div>
 
-          <div className="space-y-6 ">
+          <div className="space-y-6 slideLeft">
             <h3 className="text-2xl font-bold text-white">
               Hello! I'm <span className="text-blue-500">Ravindra Yadav</span>
             </h3>
@@ -39,7 +38,7 @@ const About = () => {
               Whether it's crafting a beautiful frontend or architecting a robust backend, I am always eager to learn and improve.
             </p>
 
-                <div className='flex flex-wrap gap-8'>
+                <div className='flex flex-wrap gap-8 slideUp'>
                     <div className='flex flex-col items-center'>
                       <FaHtml5 size={35} className='text-orange-500 hover:text-orange-600'/>
                     <span className='text-cyan-200 hover:text-cyan-300'>HTML5</span>
@@ -95,7 +94,6 @@ const About = () => {
                     </div>
                     
                 </div>
-          
   
             </div>
           </div>

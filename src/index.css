@@ -25,3 +25,123 @@ body {
   @apply bg-gray-700 rounded-full hover:bg-gray-600;
 }
 
+/* Custom focus styles */
+@layer components {
+
+  /*  Slide animations */
+  .slideRight {
+    animation: slideRight 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+  @keyframes slideRight {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  .slideLeft {
+    animation: slideLeft 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+  @keyframes slideLeft {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  .slideUp {
+    animation: slideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .slideDown {
+    animation: slideDown 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /*  Fade animations */
+  .fadeIn {
+    animation: fadeIn 0.6s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .fadeOut {
+    animation: fadeOut 0.6s ease both;
+    animation-timeline: view();
+    animation-range: cover 60% exit 100%;
+  }
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+
+  
+}
+@layer components {
+
+  .slideDown {
+    animation: slideDown 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .skillCard {
+    animation: skillCardReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+  @keyframes skillCardReveal {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* badge flips in — name reveals mid-flip */
+  .skillBadge {
+    animation: badgeFlip 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+  @keyframes badgeFlip {
+    0%   { opacity: 0; transform: rotateY(90deg) scale(0.8); }
+    50%  { opacity: 0.6; transform: rotateY(20deg) scale(0.95); }
+    100% { opacity: 1;   transform: rotateY(0deg)  scale(1); }
+  }
+
+  /* icon spins independently inside the badge */
+  .skillIcon {
+    display: inline-flex;
+    animation: iconSpin 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+  @keyframes iconSpin {
+    0%   { transform: rotate(-180deg) scale(0);    opacity: 0; }
+    60%  { transform: rotate(15deg)   scale(1.2);  opacity: 1; }
+    80%  { transform: rotate(-8deg)   scale(0.95); }
+    100% { transform: rotate(0deg)    scale(1);    opacity: 1; }
+  }
+
+
+}
+
+

@@ -11,6 +11,7 @@ const Navbar = () => {
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Focus', href: '#focus' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -43,10 +44,10 @@ const Navbar = () => {
             <a href="https://github.com/Ravindra-builds" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
               <FaGithub size={20} className='hover:scale-110'/>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <a href="https://www.linkedin.com/in/ravindra-yadav-778498390/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
               <FaLinkedin size={20} className='hover:scale-110' />
             </a>
-            <a href="mailto:email@example.com" className="text-gray-400 hover:text-white transition-colors">
+            <a href="mailto:yadavravindra7292@gmail.com" className="text-gray-400 hover:text-white transition-colors">
               <Mail size={20} className='hover:scale-110 ]' />
             </a>
           </div>

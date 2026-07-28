@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
 
     // Replace after creating your X profile
-    creator: "@yourusername",
+    creator: "@YadavRavin7292",
   },
 
   alternates: {

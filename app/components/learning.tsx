@@ -1,22 +1,22 @@
 import React from 'react';
-import { Cpu, Globe, Server } from 'lucide-react';
+import { Bot, Globe, Network } from 'lucide-react';
 
 const Learning = () => {
   const learningGoals = [
     {
-      title: "Basics of System Design",
-      description: "Understanding how to design scalable systems, including concepts like load balancing, caching, and database sharding.",
-      icon: <Cpu className="text-blue-400" size={32} />
-    },
-    {
-      title: "Docker & Kubernetes",
-      description: "Learning containerization and orchestration to deploy scalable applications with consistency across environments.",
-      icon: <Server className="text-purple-400" size={32} />
+      title: "AI Agents",
+      description: "Building autonomous, tool-using agents — planning, memory, and multi-step task execution beyond single-turn chat.",
+      icon: <Bot className="text-blue-400" size={32} />
     },
     {
       title: "Cloud Architecture",
       description: "Exploring AWS services to build serverless applications and understanding microservices architecture.",
       icon: <Globe className="text-green-400" size={32} />
+    },
+    {
+      title: "System Design",
+      description: "Understanding how to design scalable systems, including load balancing, caching, and database sharding.",
+      icon: <Network className="text-purple-400" size={32} />
     }
   ];
 

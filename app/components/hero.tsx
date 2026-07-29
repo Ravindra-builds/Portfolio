@@ -1,39 +1,55 @@
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-gray-900 via-gray-950 to-black overflow-hidden relative">
-      
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -z-10 animate-pulse delay-1000"></div>
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-black overflow-hidden relative"
+    >
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/20 rounded-full blur-3xl -z-10 animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-3xl -z-10 animate-pulse delay-1000"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-        
-        <div className="mb-6 px-4 py-1 rounded-full border border-gray-700 bg-gray-900/50 backdrop-blur-sm inline-flex items-center">
+        <div className="mb-6 px-4 py-1 rounded-full border border-gray-300 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm inline-flex items-center">
           <span className="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
-          <span className="text-sm text-gray-300">Available for new projects</span>
+          <span className="text-sm text-gray-600 dark:text-gray-300">
+            Available for new projects
+          </span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-          Hi, I&apos;m <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Ravindra Yadav</span>
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-gray-900 dark:text-white">
+          Hi, I&apos;m{" "}
+          <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500 bg-clip-text text-transparent">
+            Ravindra Yadav
+          </span>
         </h1>
-        
-        <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-          An <span className="text-white font-semibold">AI & Full-Stack Developer</span> building production-ready RAG systems, multi-LLM platforms, and real-time apps with <span className="text-white font-semibold">React, Next.js, and Node.js</span>.
+
+        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+          An{" "}
+          <span className="text-gray-900 dark:text-white font-semibold">
+            AI & Full-Stack Developer
+          </span>{" "}
+          building production-ready RAG systems, multi-LLM platforms, and
+          real-time apps with{" "}
+          <span className="text-gray-900 dark:text-white font-semibold">
+            React, Next.js, and Node.js
+          </span>
+          .
         </p>
-        
+
         <div className="flex flex-col sm:flex-row gap-4">
-          <a 
-            href="#projects" 
-            className="px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25"
+          <a
+            href="#projects"
+            className="px-8 py-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white font-medium transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25"
           >
             View My Work
             <ArrowRight size={20} />
           </a>
-          
-          <a 
-            href="/Resume.pdf" download="My_Resume.pdf"
-            className="px-8 py-3 rounded-full border border-gray-700 hover:border-gray-500 hover:bg-gray-800 text-white font-medium transition-all flex items-center justify-center gap-2"
+
+          <a
+            href="/Resume.pdf"
+            download="My_Resume.pdf"
+            className="px-8 py-3 rounded-full border border-gray-300 dark:border-gray-700 hover:border-gray-500 dark:hover:border-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white font-medium transition-all flex items-center justify-center gap-2"
           >
             Download Resume
             <Download size={20} />

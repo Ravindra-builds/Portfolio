@@ -105,10 +105,10 @@ const projects: Project[] = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-gray-950">
+    <section id="projects" className="py-20 bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 slideDown">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 slideRight">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 slideRight">
             Featured Projects
           </h2>
           <div className="w-20 h-1 bg-green-500 mx-auto rounded-full"></div>
@@ -127,17 +127,24 @@ const Projects = () => {
                 href={primaryHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="slideUp group relative bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-600 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col"
+                className="slideUp group relative bg-white dark:bg-gray-900 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 {/* Status badge */}
                 <span
-                  className={`absolute top-3 right-3 z-30 text-xs font-medium px-2.5 py-1 rounded-full border backdrop-blur-sm ${
+                  className={`absolute top-3 right-3 z-30 flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border backdrop-blur-sm ${
                     project.status === "Live"
-                      ? "bg-green-500/15 text-green-400 border-green-500/30"
-                      : "bg-yellow-500/15 text-yellow-400 border-yellow-500/30"
+                      ? "bg-green-500/15 text-green-700 dark:text-green-400 border-green-500/30"
+                      : "bg-yellow-500/15 text-yellow-700 dark:text-yellow-400 border-yellow-500/30"
                   }`}
                 >
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full ${
+                      project.status === "Live"
+                        ? "bg-green-500 animate-pulse"
+                        : "bg-yellow-500 animate-pulse"
+                    }`}
+                  />
                   {project.status}
                 </span>
 
@@ -156,9 +163,9 @@ const Projects = () => {
                     </>
                   ) : (
                     <div
-                      className={`w-full h-full flex items-center justify-center bg-gradient-to-br ${project.gradient} bg-gray-900 relative`}
+                      className={`w-full h-full flex items-center justify-center bg-gradient-to-br ${project.gradient} bg-gray-100 dark:bg-gray-900 relative`}
                     >
-                      <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:16px_16px]" />
+                      <div className="absolute inset-0 opacity-30 dark:opacity-20 [background-image:radial-gradient(circle_at_1px_1px,theme(colors.gray.900)_1px,transparent_0)] dark:[background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:16px_16px]" />
                       <div className="relative z-10 p-5 rounded-2xl bg-gray-950/40 border border-white/10 group-hover:scale-110 transition-transform duration-500">
                         {project.icon}
                       </div>
@@ -168,11 +175,11 @@ const Projects = () => {
 
                 <div className="p-6 flex flex-col flex-1">
                   <h3
-                    className={`text-xl font-bold mb-2 bg-gradient-to-r from-slate-100 to-slate-300 bg-clip-text text-transparent transition-all duration-300 ${project.titleGradient}`}
+                    className={`text-xl font-bold mb-2 bg-gradient-to-r from-gray-700 to-gray-500 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent transition-all duration-300 ${project.titleGradient}`}
                   >
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
                     {project.description}
                   </p>
 
@@ -180,14 +187,14 @@ const Projects = () => {
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs px-2 py-1 bg-gray-800 text-blue-300 rounded border border-gray-700"
+                        className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-blue-700 dark:text-blue-300 rounded border border-gray-200 dark:border-gray-700"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-800">
+                  <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-200 dark:border-gray-800">
                     <span
                       onClick={(e) => {
                         e.preventDefault();
@@ -197,13 +204,13 @@ const Projects = () => {
                           "noopener,noreferrer",
                         );
                       }}
-                      className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors cursor-pointer"
+                      className="flex items-center gap-2 text-sm text-gray-600 group-hover:text-black transition-colors cursor-pointer"
                     >
                       <FaGithub size={16} />
                       Code
                     </span>
                     {project.live && (
-                      <span className="flex items-center gap-2 text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
+                      <span className="flex items-center gap-2 text-sm text-blue-400 group-hover:text-blue-500 transition-colors">
                         Live Demo
                         <ExternalLink size={16} />
                       </span>

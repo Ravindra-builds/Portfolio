@@ -1,21 +1,42 @@
 import Image from "next/image";
-import {
-  FaHtml5,
-  FaCss3,
-  FaJsSquare,
-  FaNodeJs,
-  FaReact,
-  FaBootstrap,
-  FaGitAlt,
-  FaGithub,
-} from "react-icons/fa";
-import {
-  SiExpress,
-  SiSocketdotio,
-  SiTailwindcss,
-  SiMongodb,
-} from "react-icons/si";
-import { GrMysql } from "react-icons/gr";
+import { FaReact, FaNodeJs, FaDocker } from "react-icons/fa";
+import { SiTypescript, SiMongodb, SiPostgresql, SiRedis } from "react-icons/si";
+import { VscOpenai } from "react-icons/vsc";
+import { TbBrandNextjs } from "react-icons/tb";
+import { Sparkles, Bot, Search, Network } from "lucide-react";
+
+const topSkills = [
+  { name: "Next.js", icon: <TbBrandNextjs size={22} className="text-white" /> },
+  { name: "React.js", icon: <FaReact size={22} className="text-sky-400" /> },
+  {
+    name: "TypeScript",
+    icon: <SiTypescript size={22} className="text-blue-400" />,
+  },
+  { name: "Node.js", icon: <FaNodeJs size={22} className="text-green-500" /> },
+  { name: "OpenAI API", icon: <VscOpenai size={22} className="text-white" /> },
+  {
+    name: "Gemini API",
+    icon: <Sparkles size={22} className="text-blue-300" />,
+  },
+  {
+    name: "RAG Pipelines",
+    icon: <Search size={22} className="text-purple-300" />,
+  },
+  { name: "Vercel AI SDK", icon: <Bot size={22} className="text-teal-300" /> },
+  {
+    name: "MongoDB",
+    icon: <SiMongodb size={22} className="text-emerald-400" />,
+  },
+  {
+    name: "PostgreSQL",
+    icon: <SiPostgresql size={22} className="text-sky-300" />,
+  },
+  { name: "Redis", icon: <SiRedis size={22} className="text-red-500" /> },
+  {
+    name: "System Design",
+    icon: <Network size={22} className="text-amber-300" />,
+  },
+];
 
 const About = () => {
   return (
@@ -53,7 +74,7 @@ const About = () => {
               <span className="text-white font-medium">
                 AI & Full-Stack Developer
               </span>{" "}
-              who builds production-ready web apps and AI products — from RAG
+              who builds production-ready web apps and AI products - from RAG
               research assistants to multi-LLM chat platforms. I work across the
               stack with{" "}
               <span className="text-white font-medium">
@@ -68,118 +89,31 @@ const About = () => {
               <span className="text-white font-medium">
                 LLM-powered products
               </span>{" "}
-              — tool calling, streaming, embeddings, and RAG pipelines — while
+              - tool calling, streaming, embeddings, and RAG pipelines - while
               keeping the backend fundamentals (auth, rate limiting, caching,
               real-time systems) just as solid. I ship real, working projects
               independently, end to end.
             </p>
 
-            <div className="flex flex-wrap gap-8 slideUp">
-              <div className="flex flex-col items-center">
-                <FaHtml5
-                  size={35}
-                  className="text-orange-500 hover:text-orange-600"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">HTML5</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaCss3
-                  size={35}
-                  className="text-blue-500 hover:text-blue-600"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">CSS3</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaBootstrap
-                  size={35}
-                  className="	text-purple-500 hover:text-purple-600"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">
-                  bootstrap
-                </span>
-              </div>
-              <div className="flex flex-col items-center">
-                <SiTailwindcss
-                  size={35}
-                  className="	text-cyan-500 hover:text-cyan-600"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">
-                  tailwind
-                </span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaJsSquare
-                  size={35}
-                  className="text-yellow-500 hover:text-yellow-600"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">JS</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaReact
-                  size={35}
-                  className="text-sky-400 hover:text-sky-500"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">React</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaNodeJs
-                  size={35}
-                  className="	text-green-600 hover:text-green-700"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">
-                  nodeJS
-                </span>
-              </div>
-              <div className="flex flex-col items-center">
-                <SiExpress
-                  size={35}
-                  className="text-zinc-300 hover:text-zinc-400"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">
-                  express
-                </span>
-              </div>
-
-              <div className="flex flex-col items-center">
-                <SiSocketdotio
-                  size={35}
-                  className="	text-white hover:text-gray-200"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">
-                  socket.io
-                </span>
-              </div>
-              <div className="flex flex-col items-center">
-                <GrMysql
-                  size={35}
-                  className="text-cyan-700 hover:text-cyan-800"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">mySQL</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <SiMongodb
-                  size={35}
-                  className="		text-emerald-400 hover:text-emerald-500"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">
-                  mongoDB
-                </span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaGitAlt
-                  size={35}
-                  className="		text-orange-400 hover:text-orange-500"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">git</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaGithub
-                  size={35}
-                  className="		text-dark-400 hover:text-dark-500"
-                />
-                <span className="text-cyan-200 hover:text-cyan-300">
-                  github
-                </span>
+            <div className="slideUp">
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-4">
+                Top Skills
+              </h4>
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                {topSkills.map((skill, idx) => (
+                  <div
+                    key={skill.name}
+                    className="group flex flex-col items-center justify-center gap-2 p-3 rounded-xl bg-gray-900 border border-gray-800 hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300"
+                    style={{ animationDelay: `${idx * 0.05}s` }}
+                  >
+                    <div className="transition-transform duration-300 group-hover:scale-110">
+                      {skill.icon}
+                    </div>
+                    <span className="text-[11px] text-gray-400 group-hover:text-white transition-colors text-center leading-tight">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

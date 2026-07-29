@@ -164,7 +164,20 @@ body {
     transform: rotate(0) scale(1);
   }
 }
+@keyframes orbitCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
+@keyframes orbitCCW {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.06); }
+}
 /* =========================
    Components
 ========================= */
@@ -239,7 +252,23 @@ body {
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
   }
+  .orbit-cw {
+  animation-name: orbitCW;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
+
+.orbit-ccw {
+  animation-name: orbitCCW;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.orbit-glow {
+  animation: breathe 6s ease-in-out infinite;
+}
+}
+
 
 /* =========================
    Accessibility

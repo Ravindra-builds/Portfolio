@@ -1,7 +1,7 @@
 "use client"
 import  { useState } from 'react';
 import { Menu, X, Mail } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,6 +46,9 @@ const Navbar = () => {
             </a>
             <a href="https://www.linkedin.com/in/ravindra-yadav-778498390/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
               <FaLinkedin size={20} className='hover:scale-110' />
+            </a>
+            <a href="https://x.com/YadavRavin7292" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <FaTwitter size={20} className='hover:scale-110'/>
             </a>
             <a href="mailto:yadavravindra7292@gmail.com" className="text-gray-400 hover:text-white transition-colors">
               <Mail size={20} className='hover:scale-110 ]' />

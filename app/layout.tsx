@@ -78,14 +78,6 @@ export const metadata: Metadata = {
     title: "Ravindra Yadav | Full Stack & AI Developer",
     description:
       "Building scalable web applications with React, Next.js, Node.js, TypeScript, MongoDB, and AI. View my projects, skills, and development journey.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Ravindra Yadav Portfolio",
-      },
-    ],
   },
 
   twitter: {
@@ -93,9 +85,6 @@ export const metadata: Metadata = {
     title: "Ravindra Yadav | Full Stack & AI Developer",
     description:
       "Full Stack Developer building modern web applications and AI-powered experiences.",
-    images: ["/og-image.png"],
-
-    // Replace after creating your X profile
     creator: "@YadavRavin7292",
   },
 

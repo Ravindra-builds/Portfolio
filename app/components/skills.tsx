@@ -52,21 +52,35 @@ const coreIconMap: Record<(typeof coreStack)[number], React.ReactNode> = {
   "Next.js": (
     <TbBrandNextjs size={18} className="text-gray-900 dark:text-white" />
   ),
-  "Node.js": <FaNodeJs size={18} className="text-green-600 dark:text-green-400" />,
-  TypeScript: <SiTypescript size={18} className="text-blue-600 dark:text-blue-400" />,
-  MongoDB: <SiMongodb size={18} className="text-emerald-600 dark:text-emerald-400" />,
-  PostgreSQL: <SiPostgresql size={18} className="text-cyan-700 dark:text-sky-300" />,
+  "Node.js": (
+    <FaNodeJs size={18} className="text-green-600 dark:text-green-400" />
+  ),
+  TypeScript: (
+    <SiTypescript size={18} className="text-blue-600 dark:text-blue-400" />
+  ),
+  MongoDB: (
+    <SiMongodb size={18} className="text-emerald-600 dark:text-emerald-400" />
+  ),
+  PostgreSQL: (
+    <SiPostgresql size={18} className="text-cyan-700 dark:text-sky-300" />
+  ),
 };
 
 const aiIconMap: Record<(typeof aiStack)[number], React.ReactNode> = {
   "OpenAI API": (
     <VscOpenai size={18} className="text-gray-900 dark:text-white" />
   ),
-  "Gemini API": <Sparkles size={18} className="text-blue-600 dark:text-blue-300" />,
+  "Gemini API": (
+    <Sparkles size={18} className="text-blue-600 dark:text-blue-300" />
+  ),
   "AI SDK": <Bot size={18} className="text-teal-600 dark:text-teal-300" />,
   RAG: <Search size={18} className="text-purple-600 dark:text-purple-300" />,
-  Embeddings: <Layers size={18} className="text-fuchsia-600 dark:text-fuchsia-300" />,
-  "Tool Calling": <Wrench size={18} className="text-amber-600 dark:text-amber-300" />,
+  Embeddings: (
+    <Layers size={18} className="text-fuchsia-600 dark:text-fuchsia-300" />
+  ),
+  "Tool Calling": (
+    <Wrench size={18} className="text-amber-600 dark:text-amber-300" />
+  ),
 };
 
 const restOfStack = [
@@ -79,7 +93,12 @@ const restOfStack = [
     items: [
       {
         n: "Tailwind CSS",
-        i: <SiTailwindcss size={14} className="text-cyan-600 dark:text-cyan-400" />,
+        i: (
+          <SiTailwindcss
+            size={14}
+            className="text-cyan-600 dark:text-cyan-400"
+          />
+        ),
       },
     ],
     plain: ["HTML5", "CSS3", "Bootstrap", "Vite"],
@@ -87,26 +106,78 @@ const restOfStack = [
   {
     category: "Backend",
     items: [
-      { n: "Express.js", i: <SiExpress size={14} className="text-gray-700 dark:text-zinc-300" /> },
-      { n: "REST APIs", i: <TbApi size={14} className="text-pink-600 dark:text-pink-400" /> },
+      {
+        n: "Express.js",
+        i: <SiExpress size={14} className="text-gray-700 dark:text-zinc-300" />,
+      },
+      {
+        n: "REST APIs",
+        i: <TbApi size={14} className="text-pink-600 dark:text-pink-400" />,
+      },
       {
         n: "JWT",
-        i: <SiJsonwebtokens size={14} className="text-yellow-600 dark:text-yellow-400" />,
+        i: (
+          <SiJsonwebtokens
+            size={14}
+            className="text-yellow-600 dark:text-yellow-400"
+          />
+        ),
       },
-      { n: "Auth", i: <Shield size={14} className="text-indigo-600 dark:text-indigo-400" /> },
-      { n: "Socket.IO", i: <SiSocketdotio size={14} className="text-gray-900 dark:text-white" /> },
-      { n: "Rate Limiting", i: <Gauge size={14} className="text-rose-600 dark:text-rose-400" /> },
+      {
+        n: "Auth",
+        i: (
+          <Shield size={14} className="text-indigo-600 dark:text-indigo-400" />
+        ),
+      },
+      {
+        n: "Socket.IO",
+        i: (
+          <SiSocketdotio size={14} className="text-gray-900 dark:text-white" />
+        ),
+      },
+      {
+        n: "Rate Limiting",
+        i: <Gauge size={14} className="text-rose-600 dark:text-rose-400" />,
+      },
     ],
   },
   {
     category: "Data, DevOps & Cloud",
     items: [
-      { n: "Redis", i: <SiRedis size={14} className="text-red-600 dark:text-red-500" /> },
-      { n: "Docker", i: <FaDocker size={14} className="text-blue-600 dark:text-blue-400" /> },
-      { n: "Git", i: <FaGitAlt size={14} className="text-orange-600 dark:text-orange-400" /> },
-      { n: "GitHub", i: <FaGithub size={14} className="text-gray-900 dark:text-white" /> },
-      { n: "Vercel", i: <SiVercel size={14} className="text-gray-900 dark:text-white" /> },
-      { n: "Render", i: <SiRender size={14} className="text-indigo-600 dark:text-indigo-400" /> },
+      {
+        n: "Redis",
+        i: <SiRedis size={14} className="text-red-600 dark:text-red-500" />,
+      },
+      {
+        n: "Docker",
+        i: <FaDocker size={14} className="text-blue-600 dark:text-blue-400" />,
+      },
+      {
+        n: "Git",
+        i: (
+          <FaGitAlt
+            size={14}
+            className="text-orange-600 dark:text-orange-400"
+          />
+        ),
+      },
+      {
+        n: "GitHub",
+        i: <FaGithub size={14} className="text-gray-900 dark:text-white" />,
+      },
+      {
+        n: "Vercel",
+        i: <SiVercel size={14} className="text-gray-900 dark:text-white" />,
+      },
+      {
+        n: "Render",
+        i: (
+          <SiRender
+            size={14}
+            className="text-indigo-600 dark:text-indigo-400"
+          />
+        ),
+      },
     ],
   },
   {
@@ -235,26 +306,33 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* ===== Quiet full inventory ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 slideUp">
-          {restOfStack.map((group) => (
-            <div key={group.category}>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
+        {/* ===== Full inventory — elevated cards ===== */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 slideUp">
+          {restOfStack.map((group, idx) => (
+            <div
+              key={group.category}
+              className="group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-5 hover:border-purple-400/50 dark:hover:border-purple-500/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/5"
+              style={{ animationDelay: `${idx * 0.08}s` }}
+            >
+              <div className="absolute top-0 left-5 w-8 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full -translate-y-px opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3.5">
                 {group.category}
               </h3>
+
               <div className="flex flex-wrap gap-2">
                 {group.items?.map((entry) =>
                   typeof entry === "string" ? (
                     <span
                       key={entry}
-                      className="text-xs px-2.5 py-1 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"
+                      className="text-xs px-2.5 py-1 rounded-md bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 hover:border-purple-400/60 dark:hover:border-purple-500/50 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                     >
                       {entry}
                     </span>
                   ) : (
                     <span
                       key={entry.n}
-                      className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300"
+                      className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-purple-400/60 dark:hover:border-purple-500/50 hover:scale-105 transition-all duration-200"
                     >
                       {entry.i}
                       {entry.n}
@@ -264,7 +342,7 @@ const Skills = () => {
                 {group.plain?.map((entry) => (
                   <span
                     key={entry}
-                    className="text-xs px-2.5 py-1 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400"
+                    className="text-xs px-2.5 py-1 rounded-md bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 hover:border-purple-400/60 dark:hover:border-purple-500/50 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                   >
                     {entry}
                   </span>

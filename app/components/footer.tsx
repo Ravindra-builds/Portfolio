@@ -54,18 +54,19 @@ const Footer = () => {
               products, end to end.
             </p>
           </div>
-
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
               Navigate
             </h4>
-            <ul className="space-y-2">
+            <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4"></div>
+            <ul className="space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="group inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                   >
+                    <span className="w-0 group-hover:w-2.5 h-px bg-blue-500 mr-0 group-hover:mr-1.5 transition-all duration-300"></span>
                     {link.name}
                   </a>
                 </li>
@@ -74,9 +75,10 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-1">
               Connect
             </h4>
+            <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4"></div>
             <div className="flex gap-3">
               {socials.map((s) => (
                 <a
@@ -85,7 +87,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.name}
-                  className="p-2.5 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-600 hover:-translate-y-1 transition-all"
+                  className="p-2.5 bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-full text-gray-600 dark:text-gray-400 hover:text-white hover:border-transparent hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300"
                 >
                   {s.icon}
                 </a>

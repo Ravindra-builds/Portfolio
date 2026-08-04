@@ -204,7 +204,7 @@ const Projects = () => {
                           "noopener,noreferrer",
                         );
                       }}
-                      className="flex items-center gap-2 text-sm text-gray-600 group-hover:text-black transition-colors cursor-pointer"
+                      className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 dark:hover:text-gray-100 group-hover:text-black transition-colors cursor-pointer"
                     >
                       <FaGithub size={16} />
                       Code

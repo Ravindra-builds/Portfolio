@@ -2,9 +2,9 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Ravindra Yadav",
+    name: "Ravindra Yadav | AI & Full Stack Developer",
     short_name: "Ravindra",
-    description: "AI & Full Stack Developer Portfolio",
+    description: "AI & Full Stack Developer Portfolio — Building RAG Systems, Multi-LLM Platforms & Scalable Web Apps",
     start_url: "/",
     display: "standalone",
     background_color: "#030712",
@@ -16,7 +16,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
       },
       {
-        src: "/android-chrome-512x512.png",
+        src: "/icon.png",
         sizes: "512x512",
         type: "image/png",
       },

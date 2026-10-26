@@ -95,6 +95,34 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ravindra Yadav",
+  url: siteUrl,
+  jobTitle: "AI & Full Stack Developer",
+  description:
+    "Full Stack & AI Developer specializing in React, Next.js, Node.js, TypeScript, PostgreSQL, and AI-powered applications.",
+  sameAs: [
+    "https://github.com/Ravindra-builds",
+    "https://www.linkedin.com/in/ravindra-yadav-778498390/",
+    "https://x.com/YadavRavin7292",
+    "https://rvindra.hashnode.dev",
+  ],
+  knowsAbout: [
+    "Artificial Intelligence",
+    "Retrieval-Augmented Generation (RAG)",
+    "Large Language Models (LLMs)",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -107,6 +135,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

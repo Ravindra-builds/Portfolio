@@ -5,12 +5,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://ravindrayadav.online",
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 1,
-    },
-    {
-      url: "https://ravindrayadav.online/about",
-      lastModified: new Date(),
     },
   ];
 }

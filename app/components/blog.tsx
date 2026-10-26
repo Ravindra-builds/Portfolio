@@ -67,7 +67,7 @@ const Blog = () => {
               className="slideUp group relative flex flex-col bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-pink-400/60 dark:hover:border-pink-500/40 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/10"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <span className="inline-block w-fit text-[11px] font-medium px-2.5 py-1 rounded-fullbg-pink-50 dark:bg-pink-500/10 text-pink-600 dark:text-pink-300 border border-pink-200 dark:border-pink-500/20 mb-4">
+              <span className="inline-block w-fit text-[11px] font-medium px-2.5 py-1 rounded-full bg-pink-50 dark:bg-pink-500/10 text-pink-600 dark:text-pink-300 border border-pink-200 dark:border-pink-500/20 mb-4">
                 {post.tag}
               </span>
 

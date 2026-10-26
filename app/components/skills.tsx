@@ -232,8 +232,8 @@ const Skills = () => {
           <div className="orbit-glow absolute inset-0 rounded-full bg-gradient-to-br from-blue-600/25 via-purple-600/20 to-pink-500/10 blur-3xl" />
 
           {/* static guide circles */}
-          <div className="absolute inset-[8%] rounded-full border border-gray-800/80" />
-          <div className="absolute inset-[32%] rounded-full border border-dashed border-gray-700/70" />
+          <div className="absolute inset-[8%] rounded-full border border-gray-300/80 dark:border-gray-800/80" />
+          <div className="absolute inset-[32%] rounded-full border border-dashed border-gray-300 dark:border-gray-700/70" />
 
           {/* AI ring — outer, slow, glowing */}
           <div
@@ -254,7 +254,7 @@ const Skills = () => {
                   >
                     <div className="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white dark:bg-gray-950 border border-purple-400/50 dark:border-purple-500/40 shadow-[0_0_16px_-3px_rgba(168,85,247,0.35)] dark:shadow-[0_0_16px_-3px_rgba(168,85,247,0.5)]  transition-all duration-300 group-hover/icon:scale-125 group-hover/icon:border-purple-400 group-hover/icon:shadow-[0_0_24px_-2px_rgba(192,132,252,0.85)]">
                       {aiIconMap[item]}
-                      <span className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium text-purple-300 opacity-0 translate-y-1 group-hover/icon:opacity-100 group-hover/icon:translate-y-0 transition-all duration-300">
+                      <span className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium text-purple-700 dark:text-purple-300 opacity-0 translate-y-1 group-hover/icon:opacity-100 group-hover/icon:translate-y-0 transition-all duration-300">
                         {item}
                       </span>
                     </div>
@@ -283,7 +283,7 @@ const Skills = () => {
                   >
                     <div className="relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 transition-all duration-300 group-hover/icon:scale-125 group-hover/icon:border-blue-400 group-hover/icon:shadow-[0_0_18px_-2px_rgba(96,165,250,0.7)]">
                       {coreIconMap[item]}
-                      <span className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium text-blue-300 opacity-0 translate-y-1 group-hover/icon:opacity-100 group-hover/icon:translate-y-0 transition-all duration-300">
+                      <span className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium text-blue-700 dark:text-blue-300 opacity-0 translate-y-1 group-hover/icon:opacity-100 group-hover/icon:translate-y-0 transition-all duration-300">
                         {item}
                       </span>
                     </div>

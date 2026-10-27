@@ -67,7 +67,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
         id: "nav-about",
         title: "About Me",
         category: "Jump to section",
-        icon: <User size={16} className="text-blue-500" />,
+        icon: <User size={16} className="text-amber-500" />,
         action: () => {
           window.location.hash = "about";
           onClose();
@@ -75,21 +75,10 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       },
       {
         section: "Navigation",
-        id: "nav-skills",
-        title: "Skills & Tech Orbit",
-        category: "Jump to section",
-        icon: <Code2 size={16} className="text-purple-500" />,
-        action: () => {
-          window.location.hash = "skills";
-          onClose();
-        },
-      },
-      {
-        section: "Navigation",
         id: "nav-projects",
-        title: "Featured Projects (SkillFarm, ChatMate, ChaiBookLM...)",
+        title: "Featured Projects (SkillFarm, P2Shield, ChaiBookLM...)",
         category: "Jump to section",
-        icon: <Briefcase size={16} className="text-emerald-500" />,
+        icon: <Briefcase size={16} className="text-amber-500" />,
         action: () => {
           window.location.hash = "projects";
           onClose();
@@ -98,7 +87,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       {
         section: "Navigation",
         id: "nav-achievements",
-        title: "Certifications & Achievements (Martinovation, ChaiCode, G-TEC)",
+        title: "Honors & Certifications (Martinovation 1st Place, ChaiCode)",
         category: "Jump to section",
         icon: <Trophy size={16} className="text-amber-500" />,
         action: () => {
@@ -109,7 +98,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       {
         section: "Navigation",
         id: "nav-journey",
-        title: "Journey & Milestones",
+        title: "Engineering Journey & Milestones",
         category: "Jump to section",
         icon: <Compass size={16} className="text-amber-500" />,
         action: () => {
@@ -119,10 +108,21 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       },
       {
         section: "Navigation",
-        id: "nav-blog",
-        title: "Articles & Engineering Writings",
+        id: "nav-stack",
+        title: "Technical Stack & Capabilities",
         category: "Jump to section",
-        icon: <BookOpen size={16} className="text-pink-500" />,
+        icon: <Code2 size={16} className="text-amber-500" />,
+        action: () => {
+          window.location.hash = "stack";
+          onClose();
+        },
+      },
+      {
+        section: "Navigation",
+        id: "nav-blog",
+        title: "Articles & Technical Writing",
+        category: "Jump to section",
+        icon: <BookOpen size={16} className="text-amber-500" />,
         action: () => {
           window.location.hash = "blog";
           onClose();
@@ -131,9 +131,9 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       {
         section: "Navigation",
         id: "nav-contact",
-        title: "Contact & Socials",
+        title: "Contact & Direct Ingestion",
         category: "Jump to section",
-        icon: <Mail size={16} className="text-cyan-500" />,
+        icon: <Mail size={16} className="text-amber-500" />,
         action: () => {
           window.location.hash = "contact";
           onClose();
@@ -142,9 +142,9 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       {
         section: "Actions",
         id: "act-copy-email",
-        title: copied ? "Copied Email!" : "Copy Email to Clipboard",
+        title: copied ? "Copied Email!" : "Copy Email Address",
         category: "Action",
-        icon: copied ? <Check size={16} className="text-green-500" /> : <Copy size={16} className="text-indigo-500" />,
+        icon: copied ? <Check size={16} className="text-emerald-500" /> : <Copy size={16} className="text-amber-500" />,
         action: handleCopyEmail,
       },
       {
@@ -152,7 +152,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
         id: "act-resume",
         title: "Download Resume (PDF)",
         category: "Action",
-        icon: <Download size={16} className="text-blue-500" />,
+        icon: <Download size={16} className="text-amber-500" />,
         action: () => {
           const a = document.createElement("a");
           a.href = "/Resume.pdf";
@@ -166,7 +166,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
         id: "theme-toggle",
         title: theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode",
         category: "Theme",
-        icon: theme === "dark" ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} className="text-indigo-400" />,
+        icon: theme === "dark" ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} className="text-amber-500" />,
         action: () => {
           setTheme(theme === "dark" ? "light" : "dark");
           onClose();
@@ -175,9 +175,9 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
       {
         section: "Socials",
         id: "soc-github",
-        title: "Open GitHub Profile (@Ravindra-builds)",
+        title: "Visit GitHub Profile",
         category: "External link",
-        icon: <ExternalLink size={16} className="text-gray-500" />,
+        icon: <ExternalLink size={16} className="text-muted-foreground" />,
         action: () => {
           window.open("https://github.com/Ravindra-builds", "_blank");
           onClose();
@@ -188,7 +188,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
         id: "soc-linkedin",
         title: "Connect on LinkedIn",
         category: "External link",
-        icon: <ExternalLink size={16} className="text-blue-600" />,
+        icon: <ExternalLink size={16} className="text-muted-foreground" />,
         action: () => {
           window.open("https://www.linkedin.com/in/ravindra-yadav-778498390/", "_blank");
           onClose();
@@ -199,7 +199,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
         id: "soc-hashnode",
         title: "Read Blog on Hashnode",
         category: "External link",
-        icon: <ExternalLink size={16} className="text-blue-500" />,
+        icon: <ExternalLink size={16} className="text-muted-foreground" />,
         action: () => {
           window.open("https://rvindra.hashnode.dev", "_blank");
           onClose();
@@ -242,18 +242,18 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-black/60 backdrop-blur-md transition-opacity"
         onClick={onClose}
       />
 
       {/* Modal Dialog */}
       <div
-        className="relative w-full max-w-xl rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-2xl overflow-hidden z-10 transition-all transform animate-in fade-in zoom-in-95 duration-150"
+        className="relative w-full max-w-xl rounded-2xl bg-card text-foreground border border-border shadow-2xl overflow-hidden z-10 transition-all transform animate-in fade-in zoom-in-95 duration-150"
         onKeyDown={handleKeyDown}
       >
         {/* Search Input Bar */}
-        <div className="flex items-center px-4 py-3.5 border-b border-gray-200 dark:border-gray-800 gap-3">
-          <Search size={18} className="text-gray-400 shrink-0" />
+        <div className="flex items-center px-4 py-3.5 border-b border-border gap-3">
+          <Search size={18} className="text-amber-500 shrink-0" />
           <input
             type="text"
             placeholder="Type a command, jump to section, or action..."
@@ -262,12 +262,12 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
-            className="w-full bg-transparent text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none"
+            className="w-full bg-transparent text-sm text-foreground placeholder-muted-foreground focus:outline-none"
             autoFocus
           />
           <button
             onClick={onClose}
-            className="p-1 rounded-md text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+            className="p-1 rounded-md text-muted-foreground hover:text-foreground"
             aria-label="Close command palette"
           >
             <X size={16} />
@@ -277,7 +277,7 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
         {/* Results List */}
         <div className="max-h-80 overflow-y-auto p-2 space-y-1">
           {filteredItems.length === 0 ? (
-            <div className="py-8 text-center text-sm text-gray-500">
+            <div className="py-8 text-center text-sm text-muted-foreground">
               No matching commands or sections found.
             </div>
           ) : (
@@ -290,15 +290,15 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
                   onMouseEnter={() => setSelectedIndex(index)}
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm transition-colors ${
                     isSelected
-                      ? "bg-blue-50 dark:bg-blue-600/20 text-blue-700 dark:text-blue-300 font-medium"
-                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/60"
+                      ? "bg-amber-500/15 text-amber-800 dark:text-amber-300 font-medium border border-amber-500/25"
+                      : "text-foreground/90 hover:bg-muted"
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <span className="shrink-0">{item.icon}</span>
                     <span className="truncate">{item.title}</span>
                   </div>
-                  <span className="text-[11px] text-gray-400 shrink-0 ml-2">
+                  <span className="text-[11px] font-mono text-muted-foreground shrink-0 ml-2">
                     {item.category}
                   </span>
                 </button>
@@ -308,18 +308,18 @@ export function CommandMenu({ isOpen, onClose }: CommandMenuProps) {
         </div>
 
         {/* Footer shortcuts */}
-        <div className="px-4 py-2.5 bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between text-[11px] text-gray-500 dark:text-gray-400">
+        <div className="px-4 py-2.5 bg-muted/50 border-t border-border flex items-center justify-between text-[11px] font-mono text-muted-foreground">
           <div className="flex items-center gap-3">
             <span>
-              <kbd className="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-gray-800 text-[10px] font-mono">↑</kbd>
-              <kbd className="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-gray-800 text-[10px] font-mono ml-0.5">↓</kbd> to navigate
+              <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px]">↑</kbd>
+              <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px] ml-0.5">↓</kbd> navigate
             </span>
             <span>
-              <kbd className="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-gray-800 text-[10px] font-mono">↵</kbd> to select
+              <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px]">↵</kbd> select
             </span>
           </div>
           <span>
-            <kbd className="px-1.5 py-0.5 rounded bg-gray-200 dark:bg-gray-800 text-[10px] font-mono">esc</kbd> to close
+            <kbd className="px-1.5 py-0.5 rounded bg-card border border-border text-[10px]">esc</kbd> close
           </span>
         </div>
       </div>

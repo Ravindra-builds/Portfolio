@@ -1,118 +1,111 @@
-import { Calendar, Clock, ArrowUpRight, PenLine } from "lucide-react";
+import React from "react";
+import { ArrowUpRight, BookOpen, Calendar, Clock } from "lucide-react";
 
-interface BlogPost {
+interface Article {
   title: string;
-  blurb: string;
+  summary: string;
   url: string;
   date: string;
   readTime: string;
   tag: string;
 }
 
-const posts: BlogPost[] = [
+const articles: Article[] = [
   {
     title: "Where RAG Fails: Understanding the Limitations",
-    blurb:
+    summary:
       "A practical look at why Retrieval-Augmented Generation breaks down in real applications — chunking pitfalls, retrieval blind spots, and what actually helps AI answer questions from your own documents.",
     url: "https://rvindra.hashnode.dev/rag-beginner-guide",
     date: "Jul 18, 2026",
     readTime: "8 min read",
-    tag: "RAG",
+    tag: "Vector RAG",
   },
   {
     title: "Context Window — Humans vs. LLMs",
-    blurb:
-      "How memory actually works for large language models compared to how humans remember, and why understanding context windows changes how you should prompt and design AI applications.",
+    summary:
+      "How memory actually works for large language models compared to human recall, and why understanding context windows changes how you should prompt and design AI applications.",
     url: "https://rvindra.hashnode.dev/context-window-llm",
     date: "Jul 13, 2026",
     readTime: "4 min read",
-    tag: "LLMs",
+    tag: "LLM Architecture",
   },
   {
     title: "How ChatGPT Understands Your Questions",
-    blurb:
+    summary:
       "Tracing the path from raw text to intelligent response — tokenization, embeddings, and attention explained simply, for anyone curious what's really happening under the hood.",
     url: "https://rvindra.hashnode.dev/how-chatgpt-understands-your-questions",
     date: "Jul 1, 2026",
     readTime: "6 min read",
-    tag: "LLMs",
+    tag: "Transformers",
   },
 ];
 
-const Blog = () => {
+export default function Blog() {
   return (
-    <section id="blog" className="py-20 bg-white dark:bg-gray-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 slideDown">
-          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full border border-pink-400/40 dark:border-pink-500/30 bg-pink-50 dark:bg-pink-500/5">
-            <PenLine size={14} className="text-pink-400" />
-            <span className="text-xs text-pink-300 font-medium">Technical Writing</span>
+    <section id="blog" className="py-20 md:py-28 border-t border-border/50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+          <div className="space-y-4">
+            <span className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/25">
+              06 / Thoughts
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              Technical <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 inline-block pr-1.5">Essays</span> &amp; Systems Writing.
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+              I write in-depth essays on Hashnode to deconstruct complex AI mechanisms, memory limits, and systems design.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 slideRight">
-            Latest Writing
-          </h2>
-          <div className="w-20 h-1 bg-pink-500 mx-auto rounded-full"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-            I write to understand things properly - AI, LLMs, and the systems behind them.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
-            <a
-              key={post.url}
-              href={post.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="slideUp group relative flex flex-col bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-pink-400/60 dark:hover:border-pink-500/40 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-2xl hover:shadow-pink-500/10"
-              style={{ animationDelay: `${index * 0.15}s` }}
-            >
-              <span className="inline-block w-fit text-[11px] font-medium px-2.5 py-1 rounded-full bg-pink-50 dark:bg-pink-500/10 text-pink-600 dark:text-pink-300 border border-pink-200 dark:border-pink-500/20 mb-4">
-                {post.tag}
-              </span>
-
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 leading-snug group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
-                {post.title}
-              </h3>
-
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-1">
-                {post.blurb}
-              </p>
-
-              <div className="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-gray-200 dark:border-gray-800">
-                <div className="flex items-center gap-3">
-                  <span className="flex items-center gap-1">
-                    <Calendar size={13} />
-                    {post.date}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock size={13} />
-                    {post.readTime}
-                  </span>
-                </div>
-                <ArrowUpRight
-                  size={16}
-                  className="text-gray-500 group-hover:text-pink-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
-                />
-              </div>
-            </a>
-          ))}
-        </div>
-
-        <div className="text-center mt-12 slideUp">
           <a
             href="https://rvindra.hashnode.dev"
             target="_blank"
             rel="noopener noreferrer"
-           className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 dark:border-gray-700 hover:border-pink-400 dark:hover:border-pink-500/50 hover:bg-pink-50 dark:hover:bg-pink-500/5 text-gray-700 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-300 font-medium transition-all duration-300"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-foreground hover:text-amber-500 transition-colors"
           >
-            Explore all posts on Hashnode
-            <ArrowUpRight size={18} />
+            <span>View All Articles</span>
+            <ArrowUpRight size={13} />
           </a>
+        </div>
+
+        {/* Articles List */}
+        <div className="space-y-6">
+          {articles.map((article) => (
+            <a
+              key={article.url}
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 sm:p-7 rounded-3xl bg-card border border-border hover:border-amber-500/40 block transition-all duration-300 hover:shadow-lg"
+            >
+              <div className="flex items-center gap-3 text-xs font-mono text-muted-foreground mb-2">
+                <span>{article.date}</span>
+                <span>•</span>
+                <span>{article.readTime}</span>
+                <span>•</span>
+                <span className="text-amber-600 dark:text-amber-400 font-medium">
+                  {article.tag}
+                </span>
+              </div>
+
+              <div className="flex items-start justify-between gap-4 mb-2">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-amber-500 transition-colors">
+                  {article.title}
+                </h3>
+                <ArrowUpRight
+                  size={16}
+                  className="text-muted-foreground group-hover:text-amber-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0 mt-1"
+                />
+              </div>
+
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {article.summary}
+              </p>
+            </a>
+          ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Blog;
+}

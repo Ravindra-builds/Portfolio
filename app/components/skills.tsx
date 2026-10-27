@@ -1,352 +1,113 @@
 import React from "react";
-import {
-  FaReact,
-  FaNodeJs,
-  FaGitAlt,
-  FaGithub,
-  FaDocker,
-} from "react-icons/fa";
-import {
-  SiTypescript,
-  SiMongodb,
-  SiPostgresql,
-  SiTailwindcss,
-  SiExpress,
-  SiRedis,
-  SiJsonwebtokens,
-  SiSocketdotio,
-  SiRender,
-  SiVercel,
-} from "react-icons/si";
-import { VscOpenai } from "react-icons/vsc";
-import { TbBrandNextjs, TbApi } from "react-icons/tb";
-import {
-  Sparkles,
-  Bot,
-  Search,
-  Layers,
-  Wrench,
-  Shield,
-  Gauge,
-} from "lucide-react";
+import { Layers, Code2, Sparkles, Database, Wrench } from "lucide-react";
 
-const coreStack = [
-  "React.js",
-  "Next.js",
-  "Node.js",
-  "TypeScript",
-  "MongoDB",
-  "PostgreSQL",
-] as const;
-const aiStack = [
-  "OpenAI API",
-  "Gemini API",
-  "AI SDK",
-  "RAG",
-  "Embeddings",
-  "Tool Calling",
-] as const;
+interface TechGroup {
+  category: string;
+  items: string[];
+}
 
-const coreIconMap: Record<(typeof coreStack)[number], React.ReactNode> = {
-  "React.js": <FaReact size={18} className="text-sky-600 dark:text-sky-400" />,
-  "Next.js": (
-    <TbBrandNextjs size={18} className="text-gray-900 dark:text-white" />
-  ),
-  "Node.js": (
-    <FaNodeJs size={18} className="text-green-600 dark:text-green-400" />
-  ),
-  TypeScript: (
-    <SiTypescript size={18} className="text-blue-600 dark:text-blue-400" />
-  ),
-  MongoDB: (
-    <SiMongodb size={18} className="text-emerald-600 dark:text-emerald-400" />
-  ),
-  PostgreSQL: (
-    <SiPostgresql size={18} className="text-cyan-700 dark:text-sky-300" />
-  ),
-};
-
-const aiIconMap: Record<(typeof aiStack)[number], React.ReactNode> = {
-  "OpenAI API": (
-    <VscOpenai size={18} className="text-gray-900 dark:text-white" />
-  ),
-  "Gemini API": (
-    <Sparkles size={18} className="text-blue-600 dark:text-blue-300" />
-  ),
-  "AI SDK": <Bot size={18} className="text-teal-600 dark:text-teal-300" />,
-  RAG: <Search size={18} className="text-purple-600 dark:text-purple-300" />,
-  Embeddings: (
-    <Layers size={18} className="text-fuchsia-600 dark:text-fuchsia-300" />
-  ),
-  "Tool Calling": (
-    <Wrench size={18} className="text-amber-600 dark:text-amber-300" />
-  ),
-};
-
-const restOfStack = [
+const stackGroups: TechGroup[] = [
   {
     category: "Languages",
-    items: ["JavaScript", "Python", "Java", "C", "C++"],
+    items: ["TypeScript", "JavaScript (ES6+)", "Python", "C", "C++", "Java", "SQL"],
   },
   {
-    category: "Frontend & Styling",
+    category: "AI & GenAI Systems",
     items: [
-      {
-        n: "Tailwind CSS",
-        i: (
-          <SiTailwindcss
-            size={14}
-            className="text-cyan-600 dark:text-cyan-400"
-          />
-        ),
-      },
-    ],
-    plain: ["HTML5", "CSS3", "Bootstrap", "Vite"],
-  },
-  {
-    category: "Backend",
-    items: [
-      {
-        n: "Express.js",
-        i: <SiExpress size={14} className="text-gray-700 dark:text-zinc-300" />,
-      },
-      {
-        n: "REST APIs",
-        i: <TbApi size={14} className="text-pink-600 dark:text-pink-400" />,
-      },
-      {
-        n: "JWT",
-        i: (
-          <SiJsonwebtokens
-            size={14}
-            className="text-yellow-600 dark:text-yellow-400"
-          />
-        ),
-      },
-      {
-        n: "Auth",
-        i: (
-          <Shield size={14} className="text-indigo-600 dark:text-indigo-400" />
-        ),
-      },
-      {
-        n: "Socket.IO",
-        i: (
-          <SiSocketdotio size={14} className="text-gray-900 dark:text-white" />
-        ),
-      },
-      {
-        n: "Rate Limiting",
-        i: <Gauge size={14} className="text-rose-600 dark:text-rose-400" />,
-      },
+      "OpenAI API",
+      "Google Gemini",
+      "Vercel AI SDK",
+      "RAG Pipelines",
+      "Qdrant Vector DB",
+      "Mem0 Memory",
+      "Tavily Search API",
+      "Embeddings & Tool Calling",
     ],
   },
   {
-    category: "Data, DevOps & Cloud",
+    category: "Frontend & Full-Stack",
     items: [
-      {
-        n: "Redis",
-        i: <SiRedis size={14} className="text-red-600 dark:text-red-500" />,
-      },
-      {
-        n: "Docker",
-        i: <FaDocker size={14} className="text-blue-600 dark:text-blue-400" />,
-      },
-      {
-        n: "Git",
-        i: (
-          <FaGitAlt
-            size={14}
-            className="text-orange-600 dark:text-orange-400"
-          />
-        ),
-      },
-      {
-        n: "GitHub",
-        i: <FaGithub size={14} className="text-gray-900 dark:text-white" />,
-      },
-      {
-        n: "Vercel",
-        i: <SiVercel size={14} className="text-gray-900 dark:text-white" />,
-      },
-      {
-        n: "Render",
-        i: (
-          <SiRender
-            size={14}
-            className="text-indigo-600 dark:text-indigo-400"
-          />
-        ),
-      },
+      "Next.js 16 (App Router)",
+      "React 19",
+      "Tailwind CSS v4",
+      "Server Actions",
+      "Framer Motion",
+      "Radix UI",
     ],
   },
   {
-    category: "CS Fundamentals",
+    category: "Backend, Databases & Caching",
     items: [
-      "OS",
-      "Computer Networks",
-      "OOP",
-      "System Design (HLD)",
-      "TCP/IP",
-      "HTTP/HTTPS",
-      "DNS",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Prisma",
+      "MongoDB",
+      "Redis (Caching & Pub/Sub)",
+      "Socket.IO (WebSockets)",
+    ],
+  },
+  {
+    category: "Cloud, Storage & DevOps",
+    items: [
+      "Docker",
+      "Cloudflare R2",
+      "Neon Postgres",
+      "Git & GitHub",
+      "Vercel",
+      "Linux / Bash",
+      "Postman",
     ],
   },
 ];
 
-// Compute a point on a circle as a % of the container, so it's fully responsive with no JS.
-function ringPos(
-  index: number,
-  total: number,
-  radiusPct: number,
-  startDeg = -90,
-) {
-  const angle = startDeg + (360 / total) * index;
-  const rad = (angle * Math.PI) / 180;
-  return {
-    left: `${50 + radiusPct * Math.cos(rad)}%`,
-    top: `${50 + radiusPct * Math.sin(rad)}%`,
-  };
-}
-
-const Skills = () => {
+export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="py-20 bg-gray-50 dark:bg-gray-900/50 overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14 slideDown">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 slideRight">
-            Skills & Technologies
+    <section id="stack" className="py-20 md:py-28 border-t border-border/50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="space-y-4 mb-14">
+          <span className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/25">
+            05 / Toolkit
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+            Technical <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 inline-block pr-1.5">Capabilities</span> &amp; Stack.
           </h2>
-          <div className="w-20 h-1 bg-purple-600 mx-auto rounded-full"></div>
-          <p className="mt-4 text-gray-400">
-            A solid full-stack core, with AI orbiting everything I build.
+          <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+            Technologies and frameworks battle-tested across production applications, hackathon systems, and backend design.
           </p>
         </div>
 
-        {/* ===== Signature orbit ===== */}
-        <div className="group/orbit relative mx-auto mb-6 aspect-square w-64 sm:w-80 md:w-[420px] slideUp">
-          {/* ambient glow */}
-          <div className="orbit-glow absolute inset-0 rounded-full bg-gradient-to-br from-blue-600/25 via-purple-600/20 to-pink-500/10 blur-3xl" />
-
-          {/* static guide circles */}
-          <div className="absolute inset-[8%] rounded-full border border-gray-300/80 dark:border-gray-800/80" />
-          <div className="absolute inset-[32%] rounded-full border border-dashed border-gray-300 dark:border-gray-700/70" />
-
-          {/* AI ring — outer, slow, glowing */}
-          <div
-            className="orbit-ccw absolute inset-0 group-hover/orbit:[animation-play-state:paused]"
-            style={{ animationDuration: "70s" }}
-          >
-            {aiStack.map((item, i) => {
-              const pos = ringPos(i, aiStack.length, 48, -60);
-              return (
-                <div
-                  key={item}
-                  className="group/icon absolute -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: pos.left, top: pos.top }}
-                >
-                  <div
-                    className="orbit-cw group-hover/orbit:[animation-play-state:paused]"
-                    style={{ animationDuration: "70s" }}
-                  >
-                    <div className="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white dark:bg-gray-950 border border-purple-400/50 dark:border-purple-500/40 shadow-[0_0_16px_-3px_rgba(168,85,247,0.35)] dark:shadow-[0_0_16px_-3px_rgba(168,85,247,0.5)]  transition-all duration-300 group-hover/icon:scale-125 group-hover/icon:border-purple-400 group-hover/icon:shadow-[0_0_24px_-2px_rgba(192,132,252,0.85)]">
-                      {aiIconMap[item]}
-                      <span className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium text-purple-700 dark:text-purple-300 opacity-0 translate-y-1 group-hover/icon:opacity-100 group-hover/icon:translate-y-0 transition-all duration-300">
-                        {item}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Core stack ring — inner */}
-          <div
-            className="orbit-cw absolute inset-0 group-hover/orbit:[animation-play-state:paused]"
-            style={{ animationDuration: "46s" }}
-          >
-            {coreStack.map((item, i) => {
-              const pos = ringPos(i, coreStack.length, 30, -90);
-              return (
-                <div
-                  key={item}
-                  className="group/icon absolute -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: pos.left, top: pos.top }}
-                >
-                  <div
-                    className="orbit-ccw group-hover/orbit:[animation-play-state:paused]"
-                    style={{ animationDuration: "46s" }}
-                  >
-                    <div className="relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 transition-all duration-300 group-hover/icon:scale-125 group-hover/icon:border-blue-400 group-hover/icon:shadow-[0_0_18px_-2px_rgba(96,165,250,0.7)]">
-                      {coreIconMap[item]}
-                      <span className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-medium text-blue-700 dark:text-blue-300 opacity-0 translate-y-1 group-hover/icon:opacity-100 group-hover/icon:translate-y-0 transition-all duration-300">
-                        {item}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Center hub */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex flex-col items-center justify-center w-[26%] aspect-square rounded-full bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-700">
-              <span className="text-sm sm:text-base font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                RY
-              </span>
-              <span className="text-[7px] sm:text-[8px] text-gray-500 mt-0.5 text-center leading-tight px-1">
-                Full-Stack + AI
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* ===== Full inventory — elevated cards ===== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 slideUp">
-          {restOfStack.map((group, idx) => (
+        {/* Categorized Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {stackGroups.map((group, idx) => (
             <div
               key={group.category}
-              className="group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-5 hover:border-purple-400/50 dark:hover:border-purple-500/40 hover:-translate-y-1 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/5"
-              style={{ animationDelay: `${idx * 0.08}s` }}
+              className={`p-6 sm:p-7 rounded-3xl bg-card border border-border flex flex-col justify-between hover:border-amber-500/30 transition-all ${
+                idx === 1 ? "md:col-span-2 border-amber-500/40 bg-gradient-to-b from-amber-500/[0.04] to-card" : ""
+              }`}
             >
-              <div className="absolute top-0 left-5 w-8 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full -translate-y-px opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3.5">
-                {group.category}
-              </h3>
-
-              <div className="flex flex-wrap gap-2">
-                {group.items?.map((entry) =>
-                  typeof entry === "string" ? (
-                    <span
-                      key={entry}
-                      className="text-xs px-2.5 py-1 rounded-md bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 hover:border-purple-400/60 dark:hover:border-purple-500/50 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                    >
-                      {entry}
-                    </span>
-                  ) : (
-                    <span
-                      key={entry.n}
-                      className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-purple-400/60 dark:hover:border-purple-500/50 hover:scale-105 transition-all duration-200"
-                    >
-                      {entry.i}
-                      {entry.n}
-                    </span>
-                  ),
-                )}
-                {group.plain?.map((entry) => (
-                  <span
-                    key={entry}
-                    className="text-xs px-2.5 py-1 rounded-md bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 hover:border-purple-400/60 dark:hover:border-purple-500/50 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-                  >
-                    {entry}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-sm font-mono font-semibold uppercase tracking-wider text-foreground">
+                    {group.category}
+                  </h3>
+                  <span className="text-xs font-mono text-amber-500">
+                    0{idx + 1}
                   </span>
-                ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="text-xs font-mono px-3 py-1.5 rounded-xl bg-muted border border-border/80 text-foreground/90 hover:border-amber-500/50 hover:text-foreground transition-colors"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
@@ -354,6 +115,4 @@ const Skills = () => {
       </div>
     </section>
   );
-};
-
-export default Skills;
+}

@@ -117,26 +117,26 @@ const techStack: TechItem[] = [
 
 const TechMarquee = () => {
   return (
-    <div className="w-full py-8 border-y border-gray-200/60 dark:border-gray-800/60 bg-gray-50/50 dark:bg-black/30 backdrop-blur-sm overflow-hidden relative">
+    <div className="w-full py-6 border-y border-border bg-muted/20 backdrop-blur-sm overflow-hidden relative">
       {/* Gradient fade edges for seamless illusion */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-      {/* Infinite scrolling marquee track (duplicated for seamless loop) */}
-      <div className="animate-marquee flex items-center gap-4 sm:gap-6">
+      {/* Infinite scrolling marquee track */}
+      <div className="animate-marquee flex items-center gap-3 sm:gap-4">
         {[...techStack, ...techStack].map((item, index) => (
           <div
             key={`${item.name}-${index}`}
-            className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/80 dark:bg-gray-900/80 border border-gray-200/80 dark:border-gray-800/80 shadow-xs hover:shadow-md hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-200 hover:-translate-y-0.5 group shrink-0"
+            className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-card border border-border shadow-2xs hover:border-amber-500/40 transition-all duration-200 group shrink-0"
           >
             <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
               {item.icon}
             </span>
             <div className="flex flex-col text-left">
-              <span className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors whitespace-nowrap">
+              <span className="text-xs font-mono font-semibold text-foreground group-hover:text-amber-500 transition-colors whitespace-nowrap">
                 {item.name}
               </span>
-              <span className="text-[10px] text-gray-600 dark:text-gray-400 font-medium whitespace-nowrap">
+              <span className="text-[10px] text-muted-foreground font-mono whitespace-nowrap">
                 {item.category}
               </span>
             </div>

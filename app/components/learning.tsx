@@ -1,74 +1,77 @@
 import React from "react";
-import { Code2, Globe, Network } from "lucide-react";
+import { Code2, Globe, Network, Compass, Sparkles } from "lucide-react";
 
 const Learning = () => {
   const learningGoals = [
     {
-      title: "DSA & Problem Solving",
-      badge: "Upcoming Focus",
+      title: "Algorithmic Intuition & Complexity",
+      badge: "Active Focus",
       description:
-        "I'm going to start my DSA journey, that is the problem-solving journey — building deep intuition in algorithmic patterns, data structures, and optimal time-space complexity.",
-      icon: <Code2 className="text-blue-500 dark:text-blue-400" size={30} />,
-      gradient: "from-blue-500/10 to-indigo-500/5",
-      borderColor: "hover:border-blue-500/40",
+        "Deepening problem-solving rigor through core algorithmic patterns: graph traversals, dynamic programming, priority queues, and amortized complexity analysis.",
+      icon: <Code2 className="text-amber-500" size={24} />,
     },
     {
-      title: "Cloud Architecture",
+      title: "Distributed Systems & Scalability",
       badge: "In Progress",
       description:
-        "Exploring AWS services to build serverless applications and understanding microservices architecture.",
-      icon: <Globe className="text-emerald-500 dark:text-emerald-400" size={30} />,
-      gradient: "from-emerald-500/10 to-teal-500/5",
-      borderColor: "hover:border-emerald-500/40",
+        "Engineering high-concurrency architectures: consensus protocols, partition tolerance, distributed caching invalidation, and database sharding.",
+      icon: <Network className="text-amber-500" size={24} />,
     },
     {
-      title: "System Design",
+      title: "Cloud Infrastructure & Edge Deployments",
       badge: "In Progress",
       description:
-        "Understanding how to design scalable systems, including load balancing, caching, and database sharding.",
-      icon: <Network className="text-purple-500 dark:text-purple-400" size={30} />,
-      gradient: "from-purple-500/10 to-pink-500/5",
-      borderColor: "hover:border-purple-500/40",
+        "Building serverless edge workers, containerized multi-node orchestration with Docker, and multi-region vector indexing.",
+      icon: <Globe className="text-amber-500" size={24} />,
     },
   ];
 
   return (
-    <section id="focus" className="py-20 bg-gray-50/70 dark:bg-gray-900/30 transition-colors">
+    <section id="focus" className="py-24 md:py-32 bg-background border-b border-border/40 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 slideDown">
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-500/20">
-            Growth & Roadmap
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3 mb-4 tracking-tight">
-            What I am Learning
+        {/* Section Header */}
+        <div className="max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/25 mb-4">
+            <Compass size={13} />
+            <span>Continuous Evolution • Active Curiosities</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
+            Current Frontiers &amp; <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400">Deep Dives</span>.
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 mx-auto rounded-full mb-4"></div>
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
-            Continuous learning and deepening engineering fundamentals are key to my growth.
+
+          <p className="text-base sm:text-lg text-muted-foreground mt-3 leading-relaxed">
+            The subjects I am currently investing deep study into to sharpen my edge as a systems-minded engineer.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {learningGoals.map((goal, index) => (
             <div
               key={goal.title}
-              className={`slideUp bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 ${goal.borderColor} transition-all duration-300 hover:-translate-y-1 hover:shadow-xl shadow-sm flex flex-col`}
-              style={{ animationDelay: `${index * 0.12}s` }}
+              className="tactile-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between group"
             >
-              <div className="flex items-center justify-between mb-6">
-                <div className="p-3.5 bg-gray-50 dark:bg-gray-800 rounded-xl inline-flex items-center justify-center border border-gray-200/60 dark:border-gray-700/60">
-                  {goal.icon}
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="p-3 bg-muted/60 border border-border rounded-xl inline-flex items-center justify-center">
+                    {goal.icon}
+                  </div>
+                  <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/25">
+                    {goal.badge}
+                  </span>
                 </div>
-                <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
-                  {goal.badge}
-                </span>
+                <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-amber-500 transition-colors">
+                  {goal.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  {goal.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                {goal.title}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mt-auto">
-                {goal.description}
-              </p>
+
+              <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-[11px] font-mono text-muted-foreground">
+                <span>PHASE 0{index + 1}</span>
+                <span className="text-amber-500 font-semibold">2026 ROADMAP</span>
+              </div>
             </div>
           ))}
         </div>

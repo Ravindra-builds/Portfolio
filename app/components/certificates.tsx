@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import {
   Trophy,
   ExternalLink,
   Maximize2,
   X,
-  Award,
+  ChevronLeft,
+  ChevronRight,
   ArrowUpRight,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
@@ -66,7 +67,7 @@ const certificates: CertificateItem[] = [
     date: "Nov – Dec 2025",
     badge: "Internship Certificate",
     description:
-      "Completed a hands-on Full-Stack Web Development internship. Engineered and presented Rentique, a vehicle and property rental platform, demonstrating full CRUD workflows, database design, and responsive interfaces.",
+      "Completed a hands-on Full-Stack Web Development internship. Engineered and presented Rentique, a house and property rental booking platform, demonstrating full CRUD workflows, database design, and responsive interfaces.",
     image: "/FullStack-internship.jpeg",
     project: {
       name: "Rentique",
@@ -78,6 +79,8 @@ const certificates: CertificateItem[] = [
 
 export default function Certificates() {
   const [selectedCert, setSelectedCert] = useState<CertificateItem | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -93,32 +96,97 @@ export default function Certificates() {
     };
   }, [selectedCert]);
 
+  const handleScroll = () => {
+    if (!trackRef.current) return;
+    const container = trackRef.current;
+    const scrollLeft = container.scrollLeft;
+    const firstCard = container.children[0] as HTMLElement;
+    if (!firstCard) return;
+
+    const cardWidth = firstCard.offsetWidth + 24;
+    const index = Math.round(scrollLeft / cardWidth);
+    const clamped = Math.min(Math.max(0, index), certificates.length - 1);
+    if (clamped !== activeIndex) {
+      setActiveIndex(clamped);
+    }
+  };
+
+  const scrollToIndex = (index: number) => {
+    if (!trackRef.current) return;
+    const container = trackRef.current;
+    const card = container.children[index] as HTMLElement;
+    if (card) {
+      const containerLeft = container.getBoundingClientRect().left;
+      const cardLeft = card.getBoundingClientRect().left;
+      const targetScroll =
+        container.scrollLeft +
+        (cardLeft - containerLeft) -
+        (container.clientWidth - card.offsetWidth) / 2;
+      container.scrollTo({ left: Math.max(0, targetScroll), behavior: "smooth" });
+      setActiveIndex(index);
+    }
+  };
+
+  const scrollPrev = () => {
+    scrollToIndex(Math.max(0, activeIndex - 1));
+  };
+
+  const scrollNext = () => {
+    scrollToIndex(Math.min(certificates.length - 1, activeIndex + 1));
+  };
+
   return (
-    <section id="achievements" className="py-20 md:py-28 border-t border-border/50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+    <section id="achievements" className="py-20 md:py-28 border-t border-border/50 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
-        <div className="space-y-4 mb-12">
-          <span className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/25">
-            03 / Recognition
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-            Verified{" "}
-            <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 text-[1.12em] inline-block pr-2 mr-2">
-              Honors
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
+          <div className="space-y-4">
+            <span className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/25">
+              03 / Recognition
             </span>
-            {" "}&amp; Certifications.
-          </h2>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
-            Competitive hackathon achievements, verified technical credentials, and professional development milestones.
-          </p>
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+              Verified{" "}
+              <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 text-[1.12em] inline-block pr-2 mr-2">
+                Honors
+              </span>
+              {" "}&amp; Certifications.
+            </h2>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
+              Competitive hackathon achievements, verified technical credentials, and professional development milestones.
+            </p>
+          </div>
+
+          {/* Prev / Next Arrows */}
+          <div className="hidden sm:flex items-center gap-1.5 self-end">
+            <button
+              onClick={scrollPrev}
+              disabled={activeIndex === 0}
+              aria-label="Previous certificate"
+              className="p-2 rounded-full border border-border bg-card hover:bg-muted text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              onClick={scrollNext}
+              disabled={activeIndex === certificates.length - 1}
+              aria-label="Next certificate"
+              className="p-2 rounded-full border border-border bg-card hover:bg-muted text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
         </div>
 
-        {/* All Cards Horizontal List */}
-        <div className="space-y-6 sm:space-y-8">
+        {/* Horizontal Scroll Track */}
+        <div
+          ref={trackRef}
+          onScroll={handleScroll}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8 scroll-smooth"
+        >
           {certificates.map((cert) => (
             <div
               key={cert.id}
-              className={`p-5 sm:p-7 rounded-3xl bg-card border flex flex-col md:flex-row items-start md:items-stretch gap-6 transition-all duration-300 hover:shadow-xl ${
+              className={`w-[88vw] sm:w-[580px] md:w-[720px] shrink-0 snap-center p-5 sm:p-7 rounded-3xl bg-card border flex flex-col md:flex-row items-start md:items-stretch gap-6 transition-all duration-300 hover:shadow-xl ${
                 cert.isWinner
                   ? "border-amber-500/40 bg-gradient-to-r from-amber-500/[0.04] via-card to-card hover:border-amber-500/60"
                   : "border-border hover:border-border/80"
@@ -127,7 +195,7 @@ export default function Certificates() {
               {/* Image Preview on Left */}
               <div
                 onClick={() => setSelectedCert(cert)}
-                className="relative w-full md:w-80 h-52 sm:h-56 md:h-auto rounded-2xl overflow-hidden cursor-pointer bg-muted border border-border group/img shrink-0"
+                className="relative w-full md:w-72 h-48 sm:h-52 md:h-auto rounded-2xl overflow-hidden cursor-pointer bg-muted border border-border group/img shrink-0"
               >
                 <Image
                   src={cert.image}
@@ -209,6 +277,51 @@ export default function Certificates() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Dotted Visual Scroll Indicator & Navigation Bar */}
+        <div className="flex items-center justify-between pt-6 mt-4">
+          <span className="text-xs font-mono text-muted-foreground">
+            0{activeIndex + 1} / 0{certificates.length} Credentials
+          </span>
+
+          {/* Interactive Dotted Track */}
+          <div className="flex items-center gap-2">
+            {certificates.map((c, i) => (
+              <button
+                key={c.id}
+                onClick={() => scrollToIndex(i)}
+                aria-label={`Go to certificate ${i + 1}`}
+                className={`transition-all duration-300 rounded-full cursor-pointer ${
+                  i === activeIndex
+                    ? "w-7 sm:w-9 h-2 bg-amber-500 shadow-sm shadow-amber-500/40"
+                    : "w-2 h-2 bg-border hover:bg-muted-foreground/50"
+                }`}
+              />
+            ))}
+          </div>
+
+          <div className="flex sm:hidden items-center gap-1">
+            <button
+              onClick={scrollPrev}
+              disabled={activeIndex === 0}
+              aria-label="Previous certificate"
+              className="p-1.5 rounded-full border border-border bg-card hover:bg-muted text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <ChevronLeft size={14} />
+            </button>
+            <button
+              onClick={scrollNext}
+              disabled={activeIndex === certificates.length - 1}
+              aria-label="Next certificate"
+              className="p-1.5 rounded-full border border-border bg-card hover:bg-muted text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <ChevronRight size={14} />
+            </button>
+          </div>
+          <span className="hidden sm:inline-block text-xs font-mono text-muted-foreground">
+            Click dots to jump to credential
+          </span>
         </div>
       </div>
 

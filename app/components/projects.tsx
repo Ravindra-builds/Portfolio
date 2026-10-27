@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import {
   ShieldCheck,
@@ -8,10 +8,12 @@ import {
   MessageSquare,
   Radio,
   Workflow,
-  Car,
+  Home,
   ArrowUpRight,
   Trophy,
   Sparkles,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
@@ -38,7 +40,7 @@ const projects: ProjectItem[] = [
     isFlagshipProduct: true,
     tagline: "AI Engineering Workspace & Multi-Agent Mentorship System",
     description:
-      "My first full-scale shipped product. SkillFarm is an AI-powered workspace that helps software engineers turn theoretical knowledge into real-world projects. Features multi-agent mentoring workflows with the supervisor pattern, persistent semantic user memory with Mem0, live web research with Tavily, and PostgreSQL with Drizzle ORM.",
+      "My first full-scale shipped product. SkillFarm is an AI workspace that helps software engineers turn concepts into real projects, featuring supervisor-led multi-agent mentoring, persistent semantic memory with Mem0, live web research, and PostgreSQL with Drizzle ORM.",
     tech: [
       "Next.js 16",
       "TypeScript",
@@ -60,7 +62,7 @@ const projects: ProjectItem[] = [
     isHackathonWinner: true,
     tagline: "Autonomous LLM Privacy Firewall Proxy with Zero-Leak Inspection",
     description:
-      "Built in 24 hours and won 1st Place out of 52 teams at Martinovation 2026 (₹20,000 prize). An inline proxy that intercepts prompts before they hit OpenAI or Gemini, detects sensitive API credentials and PII with regex and NER token scanning, and redacts them safely with a cryptographic token vault.",
+      "Built in 24 hours. Won 1st place among 52 teams at Martinovation 2026 (₹20,000 prize). P2Shield is an inline privacy proxy that screens prompts before they reach OpenAI or Gemini, detects API credentials and PII using regex and NER, and redacts sensitive data through a cryptographic token vault.",
     tech: [
       "TypeScript",
       "Node.js",
@@ -154,18 +156,20 @@ const projects: ProjectItem[] = [
     id: "rentique",
     title: "Rentique",
     badge: "Full-Stack System",
-    tagline: "End-to-End Vehicle Rental Platform with Booking Lifecycle",
+    tagline: "End-to-End House & Property Rental Platform with Booking Lifecycle",
     description:
-      "A complete full-stack rental booking system with dynamic item catalog management, optimistic collision-free reservation booking, and Cloudinary media optimization.",
+      "A complete full-stack house and property rental booking platform with dynamic listing catalog management, optimistic collision-free reservation booking, and Cloudinary media optimization.",
     tech: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     live: "https://rentique-6l5t.onrender.com/",
     github: "https://github.com/Ravindra-builds/Rentique",
-    icon: <Car size={24} className="text-indigo-500" />,
+    icon: <Home size={24} className="text-indigo-500" />,
   },
 ];
 
 export default function Projects() {
   const [filter, setFilter] = useState<"all" | "ai" | "fullstack">("all");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   const filteredProjects = projects.filter((p) => {
     if (filter === "all") return true;
@@ -182,11 +186,60 @@ export default function Projects() {
     return true;
   });
 
+  // Reset scroll and index when filter changes directly via event handler
+  const handleFilterChange = (newFilter: "all" | "ai" | "fullstack") => {
+    setFilter(newFilter);
+    setActiveIndex(0);
+    if (trackRef.current) {
+      trackRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    }
+  };
+
+  // Track active card on horizontal scroll
+  const handleScroll = () => {
+    if (!trackRef.current) return;
+    const container = trackRef.current;
+    const scrollLeft = container.scrollLeft;
+    const firstCard = container.children[0] as HTMLElement;
+    if (!firstCard) return;
+
+    const cardWidth = firstCard.offsetWidth + 24; // width + gap
+    const index = Math.round(scrollLeft / cardWidth);
+    const clamped = Math.min(Math.max(0, index), filteredProjects.length - 1);
+    if (clamped !== activeIndex) {
+      setActiveIndex(clamped);
+    }
+  };
+
+  const scrollToIndex = (index: number) => {
+    if (!trackRef.current) return;
+    const container = trackRef.current;
+    const card = container.children[index] as HTMLElement;
+    if (card) {
+      const containerLeft = container.getBoundingClientRect().left;
+      const cardLeft = card.getBoundingClientRect().left;
+      const targetScroll =
+        container.scrollLeft +
+        (cardLeft - containerLeft) -
+        (container.clientWidth - card.offsetWidth) / 2;
+      container.scrollTo({ left: Math.max(0, targetScroll), behavior: "smooth" });
+      setActiveIndex(index);
+    }
+  };
+
+  const scrollPrev = () => {
+    scrollToIndex(Math.max(0, activeIndex - 1));
+  };
+
+  const scrollNext = () => {
+    scrollToIndex(Math.min(filteredProjects.length - 1, activeIndex + 1));
+  };
+
   return (
-    <section id="projects" className="py-20 md:py-28 border-t border-border/50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Section Header with Fixed Spacing & Optical Scale */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+    <section id="projects" className="py-20 md:py-28 border-t border-border/50 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
           <div className="space-y-4">
             <span className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/25">
               02 / Work
@@ -200,47 +253,73 @@ export default function Projects() {
             </h2>
           </div>
 
-          {/* Filter Pills with Amber Tone */}
-          <div className="flex items-center gap-1.5 p-1 rounded-full bg-muted border border-border text-xs font-mono self-start sm:self-auto">
-            <button
-              onClick={() => setFilter("all")}
-              className={`px-3 py-1 rounded-full transition-colors ${
-                filter === "all"
-                  ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              All ({projects.length})
-            </button>
-            <button
-              onClick={() => setFilter("ai")}
-              className={`px-3 py-1 rounded-full transition-colors ${
-                filter === "ai"
-                  ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              AI &amp; LLMs
-            </button>
-            <button
-              onClick={() => setFilter("fullstack")}
-              className={`px-3 py-1 rounded-full transition-colors ${
-                filter === "fullstack"
-                  ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Full-Stack
-            </button>
+          {/* Filter Pills & Navigation Controls */}
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-1.5 p-1 rounded-full bg-muted border border-border text-xs font-mono">
+              <button
+                onClick={() => handleFilterChange("all")}
+                className={`px-3 py-1 rounded-full transition-colors ${
+                  filter === "all"
+                    ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                All ({projects.length})
+              </button>
+              <button
+                onClick={() => handleFilterChange("ai")}
+                className={`px-3 py-1 rounded-full transition-colors ${
+                  filter === "ai"
+                    ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                AI &amp; LLMs
+              </button>
+              <button
+                onClick={() => handleFilterChange("fullstack")}
+                className={`px-3 py-1 rounded-full transition-colors ${
+                  filter === "fullstack"
+                    ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Full-Stack
+              </button>
+            </div>
+
+            {/* Prev / Next Arrows */}
+            <div className="hidden sm:flex items-center gap-1.5">
+              <button
+                onClick={scrollPrev}
+                disabled={activeIndex === 0}
+                aria-label="Previous project"
+                className="p-2 rounded-full border border-border bg-card hover:bg-muted text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <button
+                onClick={scrollNext}
+                disabled={activeIndex === filteredProjects.length - 1}
+                aria-label="Next project"
+                className="p-2 rounded-full border border-border bg-card hover:bg-muted text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Consistent, Spacious Project Cards List */}
-        <div className="space-y-8 sm:space-y-10">
-          {filteredProjects.map((project) => (
+        {/* Horizontal Fluid Carousel Track */}
+        <div
+          ref={trackRef}
+          onScroll={handleScroll}
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8 scroll-smooth"
+        >
+          {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              className={`group p-6 sm:p-8 rounded-3xl bg-card border transition-all duration-300 hover:shadow-xl ${
+              className={`w-[88vw] sm:w-[540px] md:w-[640px] shrink-0 snap-center p-6 sm:p-8 rounded-3xl bg-card border flex flex-col justify-between transition-all duration-300 hover:shadow-xl ${
                 project.isFlagshipProduct
                   ? "border-2 border-amber-500/50 bg-gradient-to-b from-amber-500/[0.06] via-card to-card shadow-xl shadow-amber-500/5 hover:border-amber-500/70"
                   : project.isHackathonWinner
@@ -248,70 +327,71 @@ export default function Projects() {
                   : "border-border hover:border-amber-500/30"
               }`}
             >
-              {/* Card Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-                <div className="flex items-center gap-3">
-                  {/* SkillFarm Real Logo vs Icon */}
-                  {project.logo ? (
-                    <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-amber-500/40 bg-card shrink-0 p-1 shadow-sm">
-                      <Image
-                        src={project.logo}
-                        alt={project.title}
-                        fill
-                        sizes="48px"
-                        className="object-contain p-1"
-                      />
-                    </div>
-                  ) : (
-                    <div className="p-2.5 rounded-xl bg-muted border border-border">
-                      {project.icon}
-                    </div>
-                  )}
+              <div>
+                {/* Card Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    {project.logo ? (
+                      <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-amber-500/40 bg-card shrink-0 p-1 shadow-sm">
+                        <Image
+                          src={project.logo}
+                          alt={project.title}
+                          fill
+                          sizes="48px"
+                          className="object-contain p-1"
+                        />
+                      </div>
+                    ) : (
+                      <div className="p-2.5 rounded-xl bg-muted border border-border">
+                        {project.icon}
+                      </div>
+                    )}
 
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight group-hover:text-amber-500 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground font-mono">
-                      {project.tagline}
-                    </p>
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight group-hover:text-amber-500 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground font-mono">
+                        {project.tagline}
+                      </p>
+                    </div>
                   </div>
+
+                  {project.badge && (
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium self-start sm:self-center shrink-0 ${
+                        project.isFlagshipProduct
+                          ? "bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold"
+                          : project.isHackathonWinner
+                          ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold"
+                          : "bg-muted text-muted-foreground border border-border"
+                      }`}
+                    >
+                      {project.isFlagshipProduct && <Sparkles size={12} className="text-amber-500" />}
+                      {project.isHackathonWinner && !project.isFlagshipProduct && (
+                        <Trophy size={12} className="text-amber-500" />
+                      )}
+                      <span>{project.badge}</span>
+                    </span>
+                  )}
                 </div>
 
-                {project.badge && (
-                  <span
-                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium self-start sm:self-center shrink-0 ${
-                      project.isFlagshipProduct
-                        ? "bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold"
-                        : project.isHackathonWinner
-                        ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold"
-                        : "bg-muted text-muted-foreground border border-border"
-                    }`}
-                  >
-                    {project.isFlagshipProduct && <Sparkles size={12} className="text-amber-500" />}
-                    {project.isHackathonWinner && !project.isFlagshipProduct && (
-                      <Trophy size={12} className="text-amber-500" />
-                    )}
-                    <span>{project.badge}</span>
-                  </span>
-                )}
-              </div>
+                {/* Description */}
+                <p className="text-sm text-muted-foreground leading-relaxed my-4">
+                  {project.description}
+                </p>
 
-              {/* Description */}
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed my-4">
-                {project.description}
-              </p>
-
-              {/* Tech Badges */}
-              <div className="flex flex-wrap gap-1.5 my-5">
-                {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs font-mono px-2.5 py-1 rounded-lg bg-muted text-muted-foreground border border-border/60"
-                  >
-                    {t}
-                  </span>
-                ))}
+                {/* Tech Badges */}
+                <div className="flex flex-wrap gap-1.5 my-5">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs font-mono px-2.5 py-1 rounded-lg bg-muted text-muted-foreground border border-border/60"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Footer Links: Live on far left, GitHub on far right */}
@@ -343,6 +423,51 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Dotted Visual Scroll Indicator & Navigation Bar */}
+        <div className="flex items-center justify-between pt-6 mt-4">
+          <span className="text-xs font-mono text-muted-foreground">
+            {activeIndex + 1 < 10 ? `0${activeIndex + 1}` : activeIndex + 1} / {filteredProjects.length < 10 ? `0${filteredProjects.length}` : filteredProjects.length} Projects
+          </span>
+
+          {/* Interactive Dotted Track */}
+          <div className="flex items-center gap-2">
+            {filteredProjects.map((p, i) => (
+              <button
+                key={p.id}
+                onClick={() => scrollToIndex(i)}
+                aria-label={`Go to project ${i + 1}`}
+                className={`transition-all duration-300 rounded-full cursor-pointer ${
+                  i === activeIndex
+                    ? "w-7 sm:w-9 h-2 bg-amber-500 shadow-sm shadow-amber-500/40"
+                    : "w-2 h-2 bg-border hover:bg-muted-foreground/50"
+                }`}
+              />
+            ))}
+          </div>
+
+          <div className="flex sm:hidden items-center gap-1">
+            <button
+              onClick={scrollPrev}
+              disabled={activeIndex === 0}
+              aria-label="Previous project"
+              className="p-1.5 rounded-full border border-border bg-card hover:bg-muted text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <ChevronLeft size={14} />
+            </button>
+            <button
+              onClick={scrollNext}
+              disabled={activeIndex === filteredProjects.length - 1}
+              aria-label="Next project"
+              className="p-1.5 rounded-full border border-border bg-card hover:bg-muted text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <ChevronRight size={14} />
+            </button>
+          </div>
+          <span className="hidden sm:inline-block text-xs font-mono text-muted-foreground">
+            Swipe or use dots to glide
+          </span>
         </div>
       </div>
     </section>

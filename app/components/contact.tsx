@@ -35,15 +35,16 @@ export default function Contact() {
         </div>
 
         {/* Contact Plinth Card */}
-        <div className="p-6 sm:p-10 rounded-3xl bg-card border border-border hover:border-amber-500/30 transition-all space-y-8 shadow-sm">
+        <div className="p-5 sm:p-10 rounded-3xl bg-card border border-border hover:border-amber-500/30 transition-all space-y-8 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-            <div className="space-y-1">
+            <div className="space-y-1 min-w-0">
               <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
                 Direct Email
               </span>
               <a
                 href={`mailto:${email}`}
-                className="text-lg sm:text-2xl font-bold font-mono text-foreground hover:text-amber-500 transition-colors block break-all"
+                className="text-[13px] xs:text-base sm:text-xl md:text-2xl font-bold font-mono text-foreground hover:text-amber-500 transition-colors block truncate sm:overflow-visible"
+                title={email}
               >
                 {email}
               </a>
@@ -69,13 +70,13 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="pt-6 border-t border-border/60 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
-            <div className="flex items-center gap-2">
+          <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
+            <div className="flex items-center gap-2 shrink-0">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Available for Hire • Notice: Immediate</span>
             </div>
 
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-4">
               <a
                 href="https://github.com/Ravindra-builds"
                 target="_blank"

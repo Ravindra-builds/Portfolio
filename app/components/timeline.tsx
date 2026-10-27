@@ -15,49 +15,51 @@ interface JourneyItem {
 }
 
 // In ASCENDING order: 2024 -> 2025 -> 2026
+
 const journeyStages: JourneyItem[] = [
   {
     year: "2024",
     stageNumber: "Stage 01",
     badge: "The Foundation",
-    title: "Computer Science Principles & Low-Level Foundations",
+    title: "Computer Science Foundations & First Principles",
     summary:
-      "Began my engineering journey grounded in foundational computer science — understanding memory allocation and pointers through C and C++, hardware-software interaction through Operating Systems, and object-oriented architecture with Java.",
+      "Started my BCA journey at DSPMU and built my programming foundations. Focused on understanding how code works, solving problems with C and C++, and developing a stronger grasp of core computer science concepts.",
     highlights: [
-      "Learned pointers, memory allocation, and algorithmic problem-solving in C & C++",
-      "Studied Operating Systems: process scheduling, thread synchronization, virtual memory, and file systems",
-      "Object-oriented programming, data encapsulation, and design patterns with Java",
-      "Core networking fundamentals: TCP/IP, OSI model, HTTP protocol, and DNS resolution",
+      "Built programming fundamentals through C, C++, pointers, memory management, and problem-solving",
+      "Developed an understanding of object-oriented programming and data structures",
+      "Studied core concepts in operating systems, computer networks, and HTTP",
+      "Started connecting academic concepts with practical software development",
     ],
     icon: <Terminal size={14} className="text-amber-500" />,
   },
   {
     year: "2025",
     stageNumber: "Stage 02",
-    badge: "Full-Stack Breakthrough",
-    title: "MERN Stack Mastery, Redis & High-Level System Design",
+    badge: "Full-Stack Engineering",
+    title: "From Web Development to Building Complete Systems",
     summary:
-      "Transitioned into web engineering and distributed architectures. Mastered the MERN stack (MongoDB, Express, React, Node.js), implemented Redis for in-memory caching and real-time Pub/Sub, and studied High-Level System Design (HLD) for scale.",
+      "Moved beyond individual technologies and started building applications with real backend logic, databases, authentication, and real-time communication. Gained practical development experience through my full-stack internship and projects.",
     highlights: [
-      "Completed Full-Stack Web Development Internship at G TEC Computer Education",
-      "Engineered ConvoX (Full-duplex WebSocket chat with Redis Pub/Sub horizontal scale)",
-      "Built Rentique (Full-stack reservation platform with collision-free booking lifecycles)",
-      "Studied load balancing, database indexing, horizontal scaling, and caching invalidation",
+      "Completed a Full-Stack Web Development Internship at G TEC Computer Education",
+      "Built ConvoX, a real-time chat application using WebSockets and Redis Pub/Sub",
+      "Developed Rentique, a full-stack reservation platform with booking and availability workflows",
+      "Explored API design, database modeling, caching, authentication, and system design fundamentals",
     ],
     icon: <Layers size={14} className="text-amber-500" />,
   },
   {
     year: "2026",
     stageNumber: "Stage 03",
-    badge: "Present Frontier",
-    title: "Generative AI, Production RAG & Autonomous Architectures",
+    badge: "Applied AI & Product Engineering",
+    title: "Building AI Systems, Competing & Shipping Products",
     summary:
-      "Deep specialization in production AI systems. Architecting multi-agent frameworks with long-term memory, vector retrieval pipelines with Qdrant, and concurrent low-latency streaming applications using Next.js 16 and React 19.",
+      "Shifted from building conventional web applications to engineering AI-powered products. Worked with LLM integrations, agent orchestration, conversational memory, retrieval, and streaming while learning to balance technical complexity with actual user needs.",
     highlights: [
-      "1st Place Winner @ Martinovation Hackathon 2026 (Built P2Shield, ₹20,000 prize, 52 teams)",
-      "Shipped SkillFarm (Multi-agent workspace with Mem0 vector memory & Tavily research)",
-      "Engineered ChaiBookLM (Vector RAG assistant using Qdrant Vector DB & Cloudflare R2)",
-      "Advanced to Next.js 16 App Router, React 19, Vercel AI SDK, and Server Actions",
+      "Shipped SkillFarm v1, a free AI-powered learning workspace with specialized mentors and contextual learning workflows",
+      "Started my hackathon journey as a team leader with Team TechKnights, winning 1st place and ₹20,000 at Martinovation 2026 with P2Shield, an LLM privacy firewall, among 52 competing teams",
+      "Built ChatMate, a multi-LLM chat platform with streaming, conversation branching, and tool calling",
+      "Led team development of PRAGATI for SIH 2026, focused on predictive infrastructure monitoring and project-delay analysis",
+      "Explored retrieval-based AI applications through ChaiBookLM and RAG workflows for contextual AI responses",
     ],
     icon: <Sparkles size={14} className="text-amber-500" />,
   },

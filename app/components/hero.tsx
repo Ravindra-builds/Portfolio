@@ -10,15 +10,12 @@ import {
   Trophy,
   ArrowUpRight,
   MapPin,
-  FileText,
 } from "lucide-react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { SiHashnode } from "react-icons/si";
-import { ResumeModal } from "./resume-modal";
 
 export default function Hero() {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const email = "yadavravindra7292@gmail.com";
 
   const handleCopyEmail = () => {
@@ -28,36 +25,35 @@ export default function Hero() {
   };
 
   return (
-    <>
-      <section
-        id="hero"
-        className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden"
-      >
+    <section
+      id="hero"
+      className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden"
+    >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
-          {/* Top Profile / Availability Badge */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6 mb-8">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-border shadow-md bg-muted shrink-0">
+          {/* Top Profile / Availability Badge - Always in same row on mobile & desktop */}
+          <div className="flex items-center gap-3.5 sm:gap-6 mb-8">
+            <div className="relative w-16 h-16 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-border shadow-md bg-muted shrink-0">
               <Image
                 src="/ravindra-img.png"
                 alt="Ravindra Yadav"
                 fill
-                sizes="96px"
+                sizes="(max-width: 640px) 64px, 96px"
                 className="object-cover"
                 priority
               />
             </div>
 
-            <div className="space-y-1.5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-                <span className="relative flex h-2 w-2">
+            <div className="space-y-1 sm:space-y-1.5 min-w-0">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-xl sm:rounded-full text-[11px] sm:text-xs font-medium bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 leading-tight">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
                 <span>Available for engineering roles &amp; projects</span>
               </div>
 
-              <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono">
-                <MapPin size={12} className="text-muted-foreground" />
+              <div className="flex items-center gap-1.5 sm:gap-2 text-[10.5px] sm:text-xs text-muted-foreground font-mono">
+                <MapPin size={11} className="text-muted-foreground shrink-0" />
                 <span>Ranchi, India • Open to Remote Worldwide</span>
               </div>
             </div>
@@ -87,17 +83,17 @@ export default function Hero() {
             {/* Martinovation Hackathon Proof Pill */}
             <a
               href="#achievements"
-              className="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/25 text-amber-800 dark:text-amber-300 text-xs transition-colors group"
+              className="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/25 text-amber-800 dark:text-amber-300 text-xs transition-colors group max-w-full"
             >
-              <span className="p-1.5 rounded-full bg-amber-500/20 text-amber-500">
+              <span className="p-1.5 rounded-full bg-amber-500/20 text-amber-500 shrink-0">
                 <Trophy size={13} />
               </span>
-              <span className="font-medium">
+              <span className="font-medium truncate sm:overflow-visible">
                 1st Place Winner @ Martinovation Hackathon 2026
               </span>
               <ArrowUpRight
                 size={13}
-                className="text-amber-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform ml-auto"
+                className="text-amber-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform ml-auto shrink-0"
               />
             </a>
 
@@ -111,13 +107,14 @@ export default function Hero() {
                 <ArrowDown size={14} />
               </a>
 
-              <button
-                onClick={() => setIsResumeOpen(true)}
+              <a
+                href="/Resume.pdf"
+                download="Ravindra_Yadav_Resume.pdf"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border bg-card hover:bg-muted text-foreground text-xs sm:text-sm font-medium transition-colors"
               >
-                <FileText size={14} className="text-amber-500" />
-                <span>Read Resume</span>
-              </button>
+                <Download size={14} className="text-amber-500" />
+                <span>Download Resume</span>
+              </a>
 
               <button
                 onClick={handleCopyEmail}
@@ -129,7 +126,7 @@ export default function Hero() {
             </div>
 
             {/* Social Links Row */}
-            <div className="flex items-center gap-4 pt-4 text-muted-foreground border-t border-border/50">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-4 text-muted-foreground border-t border-border/50">
               <a
                 href="https://github.com/Ravindra-builds"
                 target="_blank"
@@ -173,9 +170,5 @@ export default function Hero() {
           </div>
         </div>
       </section>
-
-      {/* Interactive Resume Reader Modal */}
-      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
-    </>
   );
 }

@@ -6,61 +6,85 @@ interface TechGroup {
   items: string[];
 }
 
+
 const stackGroups: TechGroup[] = [
   {
     category: "Languages",
-    items: ["TypeScript", "JavaScript (ES6+)", "Python", "C", "C++", "Java", "SQL"],
-  },
-  {
-    category: "AI & GenAI Systems",
     items: [
-      "OpenAI API",
-      "Google Gemini",
-      "Vercel AI SDK",
-      "RAG Pipelines",
-      "Qdrant Vector DB",
-      "Mem0 Memory",
-      "Tavily Search API",
-      "Embeddings & Tool Calling",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "Python",
+      "C",
+      "C++",
+      "Java",
+      "SQL",
     ],
   },
   {
-    category: "Frontend & Full-Stack",
+  category: "AI Engineering",
+  items: [
+    "LLM APIs",
+    "AI Agent Orchestration",
+    "Retrieval-Augmented Generation (RAG)",
+    "Tool Calling",
+    "Embeddings & Semantic Search",
+    "Conversational Memory",
+    "Web Search Integration",
+    "Streaming AI Responses",
+  ],
+},
+  {
+    category: "Frontend Development",
     items: [
-      "Next.js 16 (App Router)",
-      "React 19",
-      "Tailwind CSS v4",
-      "Server Actions",
+      "React",
+      "Next.js (App Router)",
+      "Tailwind CSS",
+      "HTML5",
+      "CSS3",
+      "Bootstrap",
       "Framer Motion",
-      "Radix UI",
     ],
   },
   {
-    category: "Backend, Databases & Caching",
+    category: "Backend & APIs",
     items: [
       "Node.js",
       "Express.js",
-      "PostgreSQL",
-      "Drizzle ORM",
-      "Prisma",
-      "MongoDB",
-      "Redis (Caching & Pub/Sub)",
-      "Socket.IO (WebSockets)",
+      "REST API Design",
+      "Python FastAPI",
+      "Auth.js",
+      "JWT Authentication",
+      "Socket.IO",
     ],
   },
   {
-    category: "Cloud, Storage & DevOps",
+    category: "Databases & Data",
+    items: [
+      "PostgreSQL",
+      "Neon",
+      "Drizzle ORM",
+      "MongoDB",
+      "Mongoose",
+      "MySQL",
+      "Redis",
+    ],
+  },
+  {
+    category: "Cloud & Developer Tools",
     items: [
       "Docker",
       "Cloudflare R2",
-      "Neon Postgres",
-      "Git & GitHub",
       "Vercel",
-      "Linux / Bash",
+      "Render",
+      "Railway",
+      "Git",
+      "GitHub",
+      "Linux / WSL2",
       "Postman",
     ],
   },
 ];
+
 
 export default function Skills() {
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
@@ -76,13 +77,22 @@ export default function Navbar() {
           }`}
           aria-label="Main Navigation"
         >
-          {/* Brand Mark: Clean, bold, elegant */}
+          {/* Brand Mark: Custom Gold RY Monogram */}
           <a
             href="#hero"
             className="flex items-center gap-2.5 group mr-3 sm:mr-6 shrink-0 select-none"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 group-hover:scale-125 transition-transform" />
-            <span className="font-bold text-sm tracking-tight text-foreground group-hover:text-amber-500 transition-colors">
+            <div className="relative w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+              <Image
+                src="/ry-logo.png"
+                alt="Ravindra Yadav Logo"
+                fill
+                sizes="28px"
+                className="object-contain"
+                priority
+              />
+            </div>
+            <span className="font-bold text-sm tracking-tight bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 dark:from-amber-300 dark:via-amber-400 dark:to-amber-200 bg-clip-text text-transparent group-hover:opacity-90 transition-opacity">
               Ravindra Yadav
             </span>
           </a>

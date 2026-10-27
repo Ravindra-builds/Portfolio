@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import {
-  ExternalLink,
   ShieldCheck,
   BookOpen,
   MessageSquare,
@@ -70,6 +69,7 @@ const projects: ProjectItem[] = [
       "OpenAI",
       "Regex & NER Engine",
     ],
+    live: "https://p2shield-theta.vercel.app/",
     github: "https://github.com/Ravindra-builds/P2Shield",
     icon: <ShieldCheck size={24} className="text-amber-500" />,
   },
@@ -158,6 +158,7 @@ const projects: ProjectItem[] = [
     description:
       "A complete full-stack rental booking system with dynamic item catalog management, optimistic collision-free reservation booking, and Cloudinary media optimization.",
     tech: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    live: "https://rentique-6l5t.onrender.com/",
     github: "https://github.com/Ravindra-builds/Rentique",
     icon: <Car size={24} className="text-indigo-500" />,
   },
@@ -313,24 +314,28 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Footer Links */}
-              <div className="flex items-center gap-4 pt-4 border-t border-border/60 text-xs sm:text-sm font-medium font-mono">
-                {project.live && (
+              {/* Footer Links: Live on far left, GitHub on far right */}
+              <div className="flex items-center justify-between w-full pt-4 border-t border-border/60 text-xs sm:text-sm font-mono flex-wrap gap-2">
+                {project.live ? (
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-foreground hover:text-amber-500 transition-colors"
+                    className="inline-flex items-center gap-1 text-foreground hover:text-amber-500 transition-colors font-medium group/link"
                   >
-                    <span>Visit Live Product</span>
-                    <ArrowUpRight size={14} />
+                    <span>{project.isFlagshipProduct ? "Visit Live Product" : "Visit Live"}</span>
+                    <ArrowUpRight size={14} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                   </a>
+                ) : (
+                  <span className="text-muted-foreground/60 text-xs">
+                    Offline Hackathon Prototype
+                  </span>
                 )}
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+                  className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors font-medium ml-auto"
                 >
                   <FaGithub size={15} />
                   <span>View Source Code</span>

@@ -8,6 +8,7 @@ import {
   Maximize2,
   X,
   Award,
+  ArrowUpRight,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
@@ -25,6 +26,7 @@ interface CertificateItem {
   project?: {
     name: string;
     github: string;
+    live?: string;
   };
 }
 
@@ -43,6 +45,7 @@ const certificates: CertificateItem[] = [
     project: {
       name: "P2Shield",
       github: "https://github.com/Ravindra-builds/P2Shield",
+      live: "https://p2shield-theta.vercel.app/",
     },
   },
   {
@@ -68,6 +71,7 @@ const certificates: CertificateItem[] = [
     project: {
       name: "Rentique",
       github: "https://github.com/Ravindra-builds/Rentique",
+      live: "https://rentique-6l5t.onrender.com/",
     },
   },
 ];
@@ -168,12 +172,23 @@ export default function Certificates() {
 
                 {/* Footer Action Links */}
                 <div className="flex flex-wrap items-center gap-4 pt-4 mt-4 border-t border-border/60 text-xs font-medium">
+                  {cert.project?.live && (
+                    <a
+                      href={cert.project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-foreground hover:text-amber-500 transition-colors font-mono font-medium"
+                    >
+                      <span>Live Product</span>
+                      <ArrowUpRight size={13} />
+                    </a>
+                  )}
                   {cert.project && (
                     <a
                       href={cert.project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-foreground hover:text-amber-500 transition-colors font-mono"
+                      className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors font-mono"
                     >
                       <FaGithub size={13} />
                       <span>{cert.project.name} Repository</span>

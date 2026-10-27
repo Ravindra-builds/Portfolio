@@ -10,7 +10,11 @@ export default function About() {
             01 / Background
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-            Grounded in systems, <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 inline-block pr-1.5">obsessed</span> with craft.
+            Grounded in systems,{" "}
+            <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 text-[1.12em] inline-block pr-2 mr-2">
+              obsessed
+            </span>
+            {" "}with craft.
           </h2>
         </div>
 

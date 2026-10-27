@@ -72,7 +72,11 @@ export default function Skills() {
             05 / Toolkit
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-            Technical <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 inline-block pr-1.5">Capabilities</span> &amp; Stack.
+            Technical{" "}
+            <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 text-[1.12em] inline-block pr-2 mr-2">
+              Capabilities
+            </span>
+            {" "}&amp; Stack.
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
             Technologies and frameworks battle-tested across production applications, hackathon systems, and backend design.

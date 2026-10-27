@@ -98,7 +98,11 @@ export default function Certificates() {
             03 / Recognition
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-            Verified <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 inline-block pr-1.5">Honors</span> &amp; Certifications.
+            Verified{" "}
+            <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 text-[1.12em] inline-block pr-2 mr-2">
+              Honors
+            </span>
+            {" "}&amp; Certifications.
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
             Competitive hackathon achievements, verified technical credentials, and professional development milestones.

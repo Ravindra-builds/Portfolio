@@ -12,6 +12,7 @@ import {
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { ModeToggle } from "./mode-toggle";
 import { CommandMenu } from "./command-menu";
+import { ResumeModal } from "./resume-modal";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -28,6 +29,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCommandOpen, setIsCommandOpen] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,16 +76,14 @@ export default function Navbar() {
           }`}
           aria-label="Main Navigation"
         >
-          {/* Brand Mark with Editorial Serif Accent */}
+          {/* Brand Mark: Clean, bold, elegant */}
           <a
             href="#hero"
-            className="flex items-baseline gap-1.5 group mr-3 sm:mr-6 shrink-0 select-none"
+            className="flex items-center gap-2.5 group mr-3 sm:mr-6 shrink-0 select-none"
           >
-            <span className="font-serif italic text-lg sm:text-xl text-foreground group-hover:text-amber-500 transition-colors">
-              Ravindra
-            </span>
-            <span className="font-mono text-[10px] text-amber-500 uppercase tracking-widest font-semibold border border-amber-500/30 px-1.5 py-0.5 rounded bg-amber-500/10">
-              AI.SYS
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 group-hover:scale-125 transition-transform" />
+            <span className="font-bold text-sm tracking-tight text-foreground group-hover:text-amber-500 transition-colors">
+              Ravindra Yadav
             </span>
           </a>
 
@@ -107,16 +107,16 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Right Actions: Resume & Theme */}
+          {/* Right Actions: Resume Preview Modal Trigger & Theme */}
           <div className="flex items-center gap-2 ml-auto sm:ml-4">
-            <a
-              href="/Resume.pdf"
-              download="Ravindra_Yadav_Resume.pdf"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-amber-800 dark:text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors"
+            <button
+              onClick={() => setIsResumeOpen(true)}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-amber-800 dark:text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors font-mono"
+              title="Read official resume"
             >
+              <FileText size={13} className="text-amber-500" />
               <span>Resume</span>
-              <ArrowUpRight size={13} className="text-amber-500" />
-            </a>
+            </button>
 
             <button
               onClick={() => setIsCommandOpen(true)}
@@ -165,14 +165,16 @@ export default function Navbar() {
             </div>
 
             <div className="pt-3 border-t border-border flex items-center justify-between">
-              <a
-                href="/Resume.pdf"
-                download="Ravindra_Yadav_Resume.pdf"
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsResumeOpen(true);
+                }}
                 className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-500 font-mono"
               >
-                <span>Download Resume (PDF)</span>
-                <ArrowUpRight size={13} />
-              </a>
+                <FileText size={13} />
+                <span>Read Resume</span>
+              </button>
 
               <div className="flex items-center gap-3 text-muted-foreground">
                 <a
@@ -199,6 +201,9 @@ export default function Navbar() {
 
       {/* Global Command Palette */}
       <CommandMenu isOpen={isCommandOpen} onClose={() => setIsCommandOpen(false)} />
+
+      {/* Interactive Resume Reader Modal */}
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </>
   );
 }

@@ -73,7 +73,11 @@ export default function Timeline() {
             04 / Trajectory
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-            The Engineering <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 inline-block pr-1.5">Trajectory</span>.
+            The Engineering{" "}
+            <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 text-[1.12em] inline-block pr-2">
+              Trajectory
+            </span>
+            .
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
             Ascending timeline from foundational C/C++ memory management (2024), to full-stack systems &amp; Redis (2025), to Generative AI engineering and hackathon victories (2026).

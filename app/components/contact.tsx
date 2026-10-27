@@ -23,7 +23,11 @@ export default function Contact() {
             07 / Contact
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-            Let&apos;s build something <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 inline-block pr-1.5">extraordinary</span> together.
+            Let&apos;s build something{" "}
+            <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 text-[1.12em] inline-block pr-2 mr-2">
+              extraordinary
+            </span>
+            {" "}together.
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
             I am currently open to full-time software engineering roles, AI system contracts, and technical collaborations.

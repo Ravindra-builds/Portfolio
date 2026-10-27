@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   ExternalLink,
-  Sparkles,
   ShieldCheck,
   BookOpen,
   MessageSquare,
@@ -12,6 +12,7 @@ import {
   Car,
   ArrowUpRight,
   Trophy,
+  Sparkles,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
@@ -20,22 +21,25 @@ interface ProjectItem {
   title: string;
   badge?: string;
   isHackathonWinner?: boolean;
+  isFlagshipProduct?: boolean;
   tagline: string;
   description: string;
   tech: string[];
   live?: string;
   github: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  logo?: string;
 }
 
 const projects: ProjectItem[] = [
   {
     id: "skillfarm",
     title: "SkillFarm",
-    badge: "Production AI Platform",
-    tagline: "AI-Powered Engineering Workspace & Personalized Mentorship",
+    badge: "Flagship Product #01 • Live in Production",
+    isFlagshipProduct: true,
+    tagline: "AI Engineering Workspace & Multi-Agent Mentorship System",
     description:
-      "A production learning platform that helps software engineers turn theoretical knowledge into real-world projects. Features multi-agent mentoring workflows, persistent semantic user memory with Mem0, live web research with Tavily, and structured progression tracking.",
+      "My first full-scale shipped product. SkillFarm is an AI-powered workspace that helps software engineers turn theoretical knowledge into real-world projects. Features multi-agent mentoring workflows with the supervisor pattern, persistent semantic user memory with Mem0, live web research with Tavily, and PostgreSQL with Drizzle ORM.",
     tech: [
       "Next.js 16",
       "TypeScript",
@@ -48,7 +52,7 @@ const projects: ProjectItem[] = [
     ],
     live: "https://skillfarm.in",
     github: "https://github.com/Ravindra-builds/SkillFarm",
-    icon: <Sparkles size={24} className="text-emerald-500" />,
+    logo: "/Skillfarm-logo.png",
   },
   {
     id: "p2shield",
@@ -180,14 +184,18 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 md:py-28 border-t border-border/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Section Header */}
+        {/* Section Header with Fixed Spacing & Optical Scale */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
           <div className="space-y-4">
             <span className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/25">
               02 / Work
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-              Featured <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 inline-block pr-1.5">Projects</span> &amp; Systems.
+              Featured{" "}
+              <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 text-[1.12em] inline-block pr-2 mr-2">
+                Projects
+              </span>
+              {" "}&amp; Systems.
             </h2>
           </div>
 
@@ -232,7 +240,9 @@ export default function Projects() {
             <div
               key={project.id}
               className={`group p-6 sm:p-8 rounded-3xl bg-card border transition-all duration-300 hover:shadow-xl ${
-                project.isHackathonWinner
+                project.isFlagshipProduct
+                  ? "border-2 border-amber-500/50 bg-gradient-to-b from-amber-500/[0.06] via-card to-card shadow-xl shadow-amber-500/5 hover:border-amber-500/70"
+                  : project.isHackathonWinner
                   ? "border-amber-500/40 hover:border-amber-500/60 bg-gradient-to-b from-amber-500/[0.03] to-card"
                   : "border-border hover:border-amber-500/30"
               }`}
@@ -240,9 +250,23 @@ export default function Projects() {
               {/* Card Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-muted border border-border">
-                    {project.icon}
-                  </div>
+                  {/* SkillFarm Real Logo vs Icon */}
+                  {project.logo ? (
+                    <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-amber-500/40 bg-card shrink-0 p-1 shadow-sm">
+                      <Image
+                        src={project.logo}
+                        alt={project.title}
+                        fill
+                        sizes="48px"
+                        className="object-contain p-1"
+                      />
+                    </div>
+                  ) : (
+                    <div className="p-2.5 rounded-xl bg-muted border border-border">
+                      {project.icon}
+                    </div>
+                  )}
+
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight group-hover:text-amber-500 transition-colors">
                       {project.title}
@@ -256,12 +280,17 @@ export default function Projects() {
                 {project.badge && (
                   <span
                     className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium self-start sm:self-center shrink-0 ${
-                      project.isHackathonWinner
+                      project.isFlagshipProduct
+                        ? "bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 font-bold"
+                        : project.isHackathonWinner
                         ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold"
                         : "bg-muted text-muted-foreground border border-border"
                     }`}
                   >
-                    {project.isHackathonWinner && <Trophy size={12} className="text-amber-500" />}
+                    {project.isFlagshipProduct && <Sparkles size={12} className="text-amber-500" />}
+                    {project.isHackathonWinner && !project.isFlagshipProduct && (
+                      <Trophy size={12} className="text-amber-500" />
+                    )}
                     <span>{project.badge}</span>
                   </span>
                 )}
@@ -293,7 +322,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-foreground hover:text-amber-500 transition-colors"
                   >
-                    <span>Visit Live</span>
+                    <span>Visit Live Product</span>
                     <ArrowUpRight size={14} />
                   </a>
                 )}

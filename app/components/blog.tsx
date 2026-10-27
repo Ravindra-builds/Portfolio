@@ -51,7 +51,11 @@ export default function Blog() {
               06 / Thoughts
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-              Technical <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 inline-block pr-1.5">Essays</span> &amp; Systems Writing.
+              Technical{" "}
+              <span className="font-serif italic font-normal text-amber-600 dark:text-amber-400 text-[1.12em] inline-block pr-2 mr-2">
+                Essays
+              </span>
+              {" "}&amp; Systems Writing.
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
               I write in-depth essays on Hashnode to deconstruct complex AI mechanisms, memory limits, and systems design.

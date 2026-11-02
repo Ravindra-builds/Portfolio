@@ -7,6 +7,7 @@ import Certificates from "./components/certificates";
 import Timeline from "./components/timeline";
 import Skills from "./components/skills";
 import Blog from "./components/blog";
+import FAQ from "./components/faq";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 
@@ -23,6 +24,7 @@ export default function Home() {
         <Timeline />
         <Skills />
         <Blog />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

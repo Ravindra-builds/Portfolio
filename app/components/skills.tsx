@@ -90,7 +90,7 @@ const skillCategories: SkillCategory[] = [
     subtitle: "Production RAG, autonomous multi-agent systems & generative workflows",
     icon: <Sparkles size={20} className="text-amber-500" />,
     isSpotlight: true,
-    spotlightBadge: "Flagship Focus • Hackathon Champion",
+    spotlightBadge: "Flagship Focus • Production AI Architecture",
     items: [
       {
         name: "OpenAI API (GPT-4o)",

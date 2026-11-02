@@ -41,7 +41,7 @@ const certificates: CertificateItem[] = [
     isWinner: true,
     prize: "₹20,000 Prize • 52 Teams",
     description:
-      "Led my team in building P2Shield, an autonomous LLM privacy firewall proxy designed to detect and redact sensitive developer credentials, secrets, and client PII before queries reach external AI models. Won 1st place and ₹20,000 prize among 52 competing teams.",
+      "Led the development of P2Shield as Team Lead with Team TechKnights, an autonomous LLM privacy firewall proxy designed to detect and redact sensitive developer credentials, secrets, and client PII before queries reach external AI models. Won 1st place and ₹20,000 prize among 52 competing teams.",
     image: "/Martinovation_certificate.JPG.jpeg",
     project: {
       name: "P2Shield",

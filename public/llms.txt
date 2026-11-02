@@ -1,0 +1,94 @@
+# Ravindra Yadav — AI & Full-Stack Systems Engineer
+
+> Ravindra Yadav is a software engineer and product builder specializing in Generative AI architectures, autonomous multi-agent workflows, production RAG pipelines, semantic memory (Mem0), and high-concurrency full-stack web systems. He is the founder of SkillFarm (skillfarm.in) and an active builder of AI products. Based in Ranchi, India; available worldwide for full-time software engineering roles and freelance AI contracts.
+
+## Core Identity & Contact
+- **Full Name**: Ravindra Yadav
+- **Professional Title**: AI & Full-Stack Systems Engineer
+- **Official Portfolio**: https://www.ravindrayadav.online
+- **Email**: yadavravindra7292@gmail.com
+- **Location**: Ranchi, Jharkhand, India (Available for Worldwide Remote Work)
+- **Status**: Available for Full-Time Engineering Roles, Freelance Projects & AI Consulting (Immediate Notice)
+- **GitHub**: https://github.com/Ravindra-builds
+- **LinkedIn**: https://www.linkedin.com/in/ravindra-yadav-778498390/
+- **Twitter / X**: https://x.com/YadavRavin7292
+- **Hashnode Blog**: https://rvindra.hashnode.dev
+
+---
+
+## Flagship Products & Key Works
+
+### 1. SkillFarm (Flagship Shipped Product)
+- **URL**: https://skillfarm.in
+- **Description**: An AI-powered workspace and personalized learning system helping software engineers transform theoretical knowledge into real production code with autonomous AI mentors.
+- **Key Features**: Supervisor-led multi-agent delegation pattern, persistent semantic user memory with Mem0, real-time documentation crawling with Tavily API, and high-concurrency relational data storage.
+- **Tech Stack**: Next.js 16, React 19, TypeScript, PostgreSQL, Drizzle ORM, Mem0, Google Gemini API, Tailwind CSS.
+
+### 2. P2Shield (Autonomous LLM Privacy Firewall Proxy)
+- **Live Demo**: https://p2shield-theta.vercel.app/
+- **Repository**: https://github.com/Ravindra-builds/P2Shield
+- **Role & Team**: Led the development of P2Shield with Team TechKnights.
+- **Honors**: 1st Place Winner among 52 competing teams, ₹20,000 cash prize at Martinovation 2026.
+- **Description**: High-speed client-side LLM privacy firewall proxy that detects sensitive credentials and PII with pattern-based detection, replaces them with context-preserving synthetic surrogates, and uses an AES-256-GCM encrypted token vault for secure bidirectional unmasking.
+- **Tech Stack**: TypeScript, Node.js, Next.js 16, Google Gemini API, OpenAI API.
+
+### 3. ChaiBookLM (Contextual Vector RAG Assistant)
+- **Live Demo**: https://chai-book-lm-orpin.vercel.app/
+- **Repository**: https://github.com/Ravindra-builds/ChaiBookLM
+- **Description**: Document research assistant for dense technical documents featuring Qdrant Vector DB, semantic chunking, and Cloudflare R2 object storage.
+- **Tech Stack**: Next.js 16, Qdrant Vector DB, Prisma ORM, Neon PostgreSQL, Cloudflare R2, Clerk.
+
+### 4. ConvoX (Distributed WebSocket Chat System)
+- **Live Demo**: https://convox-60nt.onrender.com
+- **Repository**: https://github.com/Ravindra-builds/ConvoX
+- **Description**: Full-duplex messaging platform with Redis Pub/Sub syncing WebSocket events horizontally across instances.
+- **Tech Stack**: React.js, Node.js, Socket.IO, Redis, MongoDB, Docker.
+
+### 5. ChatMate (Multi-Model Chat Platform with Streaming & Branching)
+- **Live Demo**: https://chat-mate-jade-one.vercel.app/
+- **Repository**: https://github.com/Ravindra-builds/Chat-mate
+- **Description**: Production multi-model chat platform featuring token-by-token Server-Sent Events (SSE) streaming, dynamic routing between OpenAI GPT-4o and Google Gemini, tool calling, and conversation tree branching UI.
+- **Tech Stack**: Next.js 16, React 19, TypeScript, Vercel AI SDK, OpenAI API, Google Gemini API, Tailwind CSS.
+
+---
+
+## Technical Capabilities & Battle-Tested Stack
+
+- **AI & Intelligent Systems**: OpenAI API (GPT-4o), Google Gemini API, Vercel AI SDK, Multi-Agent Supervisor Patterns, Retrieval-Augmented Generation (RAG), Conversational Memory (Mem0), Tool Calling & Functions, Vector Embeddings, Multi-LLM Routing, Streaming Responses (SSE), Prompt Engineering & Evals, Basics of Machine Learning.
+- **Frontend & Client Interfaces**: React 19, Next.js 16 (App Router & Server Actions), TypeScript, Tailwind CSS v4, Framer Motion, HTML5, CSS3, Radix UI & Shadcn, Bootstrap.
+- **Backend & Distributed Systems**: Node.js, Express.js, REST API Architecture, MVC Architecture, WebSockets & Socket.IO, JWT & Session Auth, Rate Limiting & Throttling.
+- **Databases & Cloud Infrastructure**: PostgreSQL, Neon Serverless, MongoDB, Redis (Cache & Pub/Sub), Upstash (Serverless Redis), Drizzle ORM, Mongoose ODM, MySQL, Docker, Cloudflare R2 Storage, Vercel, Render, Git & GitHub.
+- **Core Computer Science**: System Design (High-Level Design / HLD), Operating Systems (Processes, Threads, Concurrency), Computer Networks (TCP/IP, HTTP/3, DNS), Database Management Systems (DBMS, ACID, Indexing), Object-Oriented Programming (OOP), Data Structures & Algorithms (DSA).
+- **Programming Languages**: TypeScript, JavaScript (ES6+), Python, Java, C, C++, SQL.
+
+---
+
+## Freelance Services & Client Solutions
+
+Ravindra is available for freelance contracts and engineering consulting in the following areas:
+1. **Generative AI & LLM Application Development**: Custom RAG pipelines, autonomous agents, tool-calling bots, and multi-model routing systems with OpenAI, Gemini, or Claude.
+2. **Full-Stack SaaS MVP Engineering**: Building fast, production-ready web applications from scratch with Next.js 16, React 19, TypeScript, and modern authentication.
+3. **Database Architecture & ORM Migration**: Designing normalized PostgreSQL schemas with Drizzle ORM, implementing Redis caching layers, and optimizing query performance.
+4. **LLM Privacy & Security Proxies**: Implementing cryptographic PII redaction and enterprise security firewalls before queries hit third-party LLMs.
+
+---
+
+## Verified Honors & Certifications
+- **1st Place Winner** — Martinovation 24-Hour Hackathon 2026 (₹20,000 Cash Prize • 52 Teams)
+- **GenAI with JavaScript Certification 2026** — ChaiCode
+- **Full Stack Web Development Internship 2025** — G TEC Computer Education
+
+---
+
+## Technical Publications (Hashnode)
+- **Where RAG Fails: Understanding the Limitations**: Practical breakdown of chunking pitfalls, semantic retrieval blind spots, and vector search edge cases (https://rvindra.hashnode.dev/rag-beginner-guide).
+- **Context Window — Humans vs. LLMs**: Contrasting neural recall mechanisms with transformer attention windows (https://rvindra.hashnode.dev/context-window-llm).
+- **How ChatGPT Understands Your Questions**: Demystifying tokenization, high-dimensional vector embeddings, and self-attention mechanisms (https://rvindra.hashnode.dev/how-chatgpt-understands-your-questions).
+
+---
+
+## How to Contact & Hire
+- **Direct Email**: yadavravindra7292@gmail.com
+- **LinkedIn**: https://www.linkedin.com/in/ravindra-yadav-778498390/
+- **Twitter / X**: https://x.com/YadavRavin7292
+- **Website**: https://www.ravindrayadav.online/#contact

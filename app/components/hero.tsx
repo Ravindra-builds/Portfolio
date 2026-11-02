@@ -8,6 +8,7 @@ import {
   Copy,
   Check,
   Trophy,
+  Sparkles,
   ArrowUpRight,
   MapPin,
 } from "lucide-react";
@@ -80,22 +81,42 @@ export default function Hero() {
               . I design systems that turn machine learning models into intuitive, practical web software.
             </p>
 
-            {/* Martinovation Hackathon Proof Pill */}
-            <a
-              href="#achievements"
-              className="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/25 text-amber-800 dark:text-amber-300 text-xs transition-colors group max-w-full"
-            >
-              <span className="p-1.5 rounded-full bg-amber-500/20 text-amber-500 shrink-0">
-                <Trophy size={13} />
-              </span>
-              <span className="font-medium truncate sm:overflow-visible">
-                1st Place Winner @ Martinovation Hackathon 2026
-              </span>
-              <ArrowUpRight
-                size={13}
-                className="text-amber-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform ml-auto shrink-0"
-              />
-            </a>
+            {/* Proof Pills: Founder & Hackathon Winner */}
+            <div className="flex flex-wrap items-center gap-2.5">
+              <a
+                href="https://skillfarm.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/25 text-amber-800 dark:text-amber-300 text-xs transition-colors group max-w-full"
+              >
+                <span className="p-1.5 rounded-full bg-amber-500/20 text-amber-500 shrink-0">
+                  <Sparkles size={13} />
+                </span>
+                <span className="font-medium truncate sm:overflow-visible">
+                  Founder @ SkillFarm • Building Production AI
+                </span>
+                <ArrowUpRight
+                  size={13}
+                  className="text-amber-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform ml-auto shrink-0"
+                />
+              </a>
+
+              <a
+                href="#achievements"
+                className="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-muted/70 hover:bg-muted border border-border/70 text-foreground/90 text-xs transition-colors group max-w-full"
+              >
+                <span className="p-1.5 rounded-full bg-amber-500/20 text-amber-500 shrink-0">
+                  <Trophy size={13} />
+                </span>
+                <span className="font-medium truncate sm:overflow-visible">
+                  1st Place Winner @ Martinovation 2026
+                </span>
+                <ArrowUpRight
+                  size={13}
+                  className="text-amber-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform ml-auto shrink-0"
+                />
+              </a>
+            </div>
 
             {/* Action CTAs */}
             <div className="flex flex-wrap items-center gap-3 pt-3">

@@ -27,7 +27,7 @@ export default function About() {
               Over the past two years, I progressed from fundamental computer science concepts (C/C++, Operating Systems, and networking protocols) to mastering the modern TypeScript &amp; AI ecosystem: <strong className="text-foreground font-semibold">React 19, Next.js 16, Node.js, and PostgreSQL</strong>.
             </p>
             <p>
-              Recently, I&apos;ve been architecting AI-native products — creating autonomous agent workflows with memory persistence (like <strong className="text-foreground font-semibold">SkillFarm</strong>), full-stack vector RAG research assistants (like <strong className="text-foreground font-semibold">ChaiBookLM</strong>), and privacy firewalls (like <strong className="text-foreground font-semibold">P2Shield</strong>, which won 1st place among 52 teams at the Martinovation Hackathon 2026).
+              Recently, I&apos;ve been architecting AI-native products — creating autonomous agent workflows with memory persistence (like <strong className="text-foreground font-semibold">SkillFarm</strong>), full-stack vector RAG research assistants (like <strong className="text-foreground font-semibold">ChaiBookLM</strong>), and privacy firewalls (like <strong className="text-foreground font-semibold">P2Shield</strong>, which I led with Team TechKnights to win 1st place at Martinovation 2026).
             </p>
             <p>
               When I&apos;m not writing code, I break down technical concepts in articles on Hashnode, explore distributed system architectures, and learn from open-source codebases.

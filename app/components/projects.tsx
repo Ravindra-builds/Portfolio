@@ -62,7 +62,7 @@ const projects: ProjectItem[] = [
     isHackathonWinner: true,
     tagline: "Autonomous LLM Privacy Firewall Proxy with Zero-Leak Inspection",
     description:
-      "Built in 24 hours. Won 1st place among 52 teams at Martinovation 2026 (₹20,000 prize). P2Shield is an inline privacy proxy that screens prompts before they reach OpenAI or Gemini, detects API credentials and PII using regex and NER, and redacts sensitive data through a cryptographic token vault.",
+      "Led the development of P2Shield with Team TechKnights in a 24-hour hackathon, winning 1st place among 52 teams at Martinovation 2026 (₹20,000 prize). P2Shield is an inline privacy proxy that screens prompts before they reach OpenAI or Gemini, detects API credentials and PII using regex and NER, and redacts sensitive data through a cryptographic token vault.",
     tech: [
       "TypeScript",
       "Node.js",

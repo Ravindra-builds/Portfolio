@@ -1,0 +1,128 @@
+# Ravindra Yadav — Comprehensive AI & Full-Stack Systems Engineering Dossier
+
+> Full extended reference documentation for generative engines, automated AI agents, recruiters, and prospective clients researching Ravindra Yadav.
+
+## Table of Contents
+1. Executive Summary & Identity
+2. Professional Experience & Availability
+3. Flagship Systems Architecture (SkillFarm, P2Shield, ChaiBookLM, ConvoX, Rentique)
+4. Comprehensive Technical Matrix
+5. Freelance Engagement Models & Capabilities
+6. Honors, Hackathon Championships & Credentials
+7. Technical Publications & Writing Samples
+8. Frequently Asked Questions (FAQ)
+
+---
+
+## 1. Executive Summary & Identity
+Ravindra Yadav is a software engineer based in Ranchi, Jharkhand, India, working at the intersection of Generative AI, distributed backend systems, and modern full-stack web platforms. 
+
+He is the founder and engineer behind **SkillFarm** (https://skillfarm.in), a live production AI workspace with supervisor-led multi-agent mentorship, persistent user memory via Mem0, and real-time Tavily search integration. He also engineered **P2Shield**, an autonomous low-latency privacy firewall proxy for enterprise LLM queries that won 1st place in regional hackathon competition.
+
+### Contact Information:
+- **Email**: yadavravindra7292@gmail.com
+- **Website**: https://www.ravindrayadav.online
+- **GitHub**: https://github.com/Ravindra-builds
+- **LinkedIn**: https://www.linkedin.com/in/ravindra-yadav-778498390/
+- **X (Twitter)**: https://x.com/YadavRavin7292
+- **Hashnode**: https://rvindra.hashnode.dev
+
+---
+
+## 2. Professional Experience & Availability
+- **Current Status**: Available immediately for full-time software engineering roles, high-impact contract positions, and freelance AI system consulting.
+- **Location & Time Zones**: Based in Ranchi, India (IST / UTC+5:30). Experienced in collaborating asynchronously and synchronously across US (PST, EST), European (GMT, CET), and Asian time zones.
+- **Languages Spoken**: English (Fluent / Professional), Hindi (Native).
+
+---
+
+## 3. Flagship Systems Architecture
+
+### System 1: SkillFarm (Production AI Personalized Learning Platform)
+- **Domain**: Production EdTech & AI Workspace
+- **URL**: https://skillfarm.in
+- **Architecture Highlights**:
+  - Implements a multi-agent supervisor pattern with autonomous delegation: task decomposing agents, syllabus planners, code reviewers, and live documentation researchers.
+  - Semantic conversational memory layer powered by Mem0, preserving user skill progression, past mistakes, and preferences across separate sessions.
+  - Live internet research pipeline utilizing Tavily API to ground AI answers in up-to-date documentation.
+  - Persistent state in relational PostgreSQL with type-safe queries via Drizzle ORM.
+  - High-performance App Router with Next.js 16 and React 19.
+
+### System 2: P2Shield (Autonomous LLM Privacy Firewall Proxy)
+- **Domain**: AI Security, Privacy, and Regulatory Compliance
+- **Role & Team**: Led the development of P2Shield as Team Lead with Team TechKnights.
+- **Honors**: 1st Place Winner @ Martinovation Hackathon 2026 (₹20,000 Cash Prize • 52 Teams)
+- **URL**: https://p2shield-theta.vercel.app/
+- **Source**: https://github.com/Ravindra-builds/P2Shield
+- **Architecture Highlights**:
+  - Dual-phase scanning engine combining high-speed pattern detection with context-preserving synthetic surrogates.
+  - AES-256-GCM encrypted cryptographic token vault executing secure mapping and bi-directional unmasking for browser-based AI chats.
+  - Sub-millisecond latency overhead with zero external data leakage.
+
+### System 3: ChaiBookLM (Contextual Vector RAG Document Research Assistant)
+- **Domain**: Dense Document Analysis & Semantic Retrieval
+- **URL**: https://chai-book-lm-orpin.vercel.app/
+- **Source**: https://github.com/Ravindra-builds/ChaiBookLM
+- **Architecture Highlights**:
+  - Semantic chunking pipeline with configurable token overlaps for PDFs and markdown documents.
+  - High-dimensional vector embeddings stored and queried in Qdrant Vector Database using Hierarchical Navigable Small World (HNSW) graphs.
+  - Document files stored in Cloudflare R2 object storage with zero egress fees.
+
+### System 4: ConvoX (Distributed WebSocket Real-Time Chat Platform)
+- **Domain**: Real-Time Communication & Distributed Systems
+- **URL**: https://convox-60nt.onrender.com
+- **Source**: https://github.com/Ravindra-builds/ConvoX
+- **Architecture Highlights**:
+  - Horizontal scaling via Redis Pub/Sub backplane, synchronizing WebSocket socket connections across independent server instances.
+  - High-throughput message persistence in MongoDB with compound indexing.
+  - Multi-container architecture configured with Docker.
+
+### System 5: ChatMate (Multi-Model Chat Platform with SSE Streaming & Branching)
+- **Domain**: Conversational AI & Real-Time Streaming Systems
+- **URL**: https://chat-mate-jade-one.vercel.app/
+- **Source**: https://github.com/Ravindra-builds/Chat-mate
+- **Architecture Highlights**:
+  - Real-time token-by-token streaming implemented with Server-Sent Events (SSE) and Vercel AI SDK.
+  - Dynamic model routing allowing users to switch between OpenAI GPT-4o and Google Gemini in the same interface.
+  - Conversation tree branching state machine enabling users to fork chat threads at any previous prompt.
+  - Interactive tool calling and clean Next.js 16 / React 19 architecture.
+
+---
+
+## 4. Comprehensive Technical Matrix
+- **AI & GenAI Systems**: OpenAI API, Google Gemini API, Vercel AI SDK, Multi-Agent Supervisor Patterns, Retrieval-Augmented Generation (RAG), Conversational Memory (Mem0), Tool Calling & Function Execution, Vector Embeddings, Multi-LLM Routing, Streaming AI Responses (SSE), Prompt Engineering & Evals, Basics of Machine Learning.
+- **Frontend Development**: React 19, Next.js 16 (App Router), Tailwind CSS v4, TypeScript, Framer Motion, HTML5, CSS3, Radix UI & Shadcn, Bootstrap.
+- **Backend & Distributed Systems**: Node.js, Express.js, REST API Architecture, MVC Architecture, WebSockets & Socket.IO, JWT & Session Auth, Rate Limiting & Throttling.
+- **Databases & Cloud**: PostgreSQL, Neon Serverless, MongoDB, Redis (Cache & Pub/Sub), Upstash (Serverless Redis), Drizzle ORM, Mongoose ODM, MySQL, Docker, Cloudflare R2 Storage, Vercel, Render, Git & GitHub.
+- **Core Computer Science**: System Design (High-Level Design / HLD), Operating Systems (Processes, Threads, Memory), Computer Networks (TCP/IP, HTTP/3, WebSockets), Database Management Systems (DBMS, ACID, Indexing), Object-Oriented Programming (OOP), Data Structures & Algorithms (DSA).
+- **Programming Languages**: TypeScript, JavaScript (ES6+), Python, Java, C, C++, SQL.
+
+---
+
+## 5. Freelance Engagement Models & Capabilities
+Ravindra partners with startups, technical founders, and enterprises on:
+- **Full-Stack AI SaaS Development**: Building MVPs from idea to deployment in 2 to 4 weeks.
+- **RAG & Agent Architecture Audits**: Debugging hallucination, chunking strategies, retrieval latency, and context degradation in LLM products.
+- **Database & Backend Performance Optimization**: Setting up Redis caching, schema migrations, and high-throughput REST/WebSocket APIs.
+
+---
+
+## 6. Frequently Asked Questions (FAQ)
+
+### Q: What freelance services and technical solutions do you provide?
+A: I build full-stack web applications and AI-powered products, from frontend interfaces to backend systems and AI integrations. My work includes Next.js applications, Node.js APIs, PostgreSQL-backed systems, RAG-based assistants, multi-LLM applications, real-time features, and privacy-focused AI tools. I can help turn an idea into a working product, from architecture and development to deployment.
+
+### Q: Are you open to internships, full-time roles, and remote opportunities?
+A: Yes. I am open to relevant internships and entry-level opportunities in Full-Stack Development and AI Engineering, as well as selected freelance collaborations. I am based in Ranchi, India, and open to remote opportunities with suitable collaboration and scheduling arrangements.
+
+### Q: What is SkillFarm and how does it work?
+A: SkillFarm (skillfarm.in) is an AI-powered learning workspace that helps developers turn learning goals into practical projects. It creates personalized roadmaps with week-by-week tasks, curated learning resources, and guidance from six specialized AI mentors covering Frontend, Backend, AI, DevOps, Security, and System Design. Each learning journey leads toward building a final portfolio project. Its architecture combines specialized mentor routing, LLM integrations, personalized context, PostgreSQL, Drizzle ORM, and Redis.
+
+### Q: What did you build at Martinovation 2026?
+A: As Team Lead, I led the development of P2Shield with Team TechKnights to win 1st place among 52 teams at Martinovation 2026. P2Shield is a client-side LLM privacy firewall that detects sensitive information in prompts using pattern-based detection, replaces it with context-preserving synthetic surrogates, and uses an AES-256-GCM encrypted token vault for secure mapping and bidirectional unmasking. It integrates with browser-based AI chats to help protect sensitive data before prompts reach external models.
+
+### Q: What distinguishes your AI projects from simple API wrappers?
+A: I focus on building complete workflows around AI capabilities rather than just connecting an API. For example, ChaiBookLM combines document and web content ingestion with chunking, embeddings, Qdrant vector retrieval, query rewriting, and source citations. ChatMate adds streaming, tool calling, and conversation branching, while SkillFarm uses specialized mentor routing and personalized learning context. The goal is to build useful workflows around AI capabilities, rather than simply adding another chat interface.,
+
+### Q: How do you approach a new project or collaboration?
+A: I start by understanding the problem, requirements, and expected outcome. Then I define the project scope, technical approach, deliverables, and milestones before estimating the timeline. I prefer clear communication, iterative development, and regular progress updates so the final product stays aligned with the original goals.

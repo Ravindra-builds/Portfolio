@@ -587,12 +587,12 @@ export default function Skills() {
         <div
           ref={trackRef}
           onScroll={handleScroll}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8 scroll-smooth"
+          className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8 scroll-smooth items-start md:items-stretch"
         >
           {displayedCategories.map((group, idx) => (
             <div
               key={group.id}
-              className={`w-[88vw] sm:w-[620px] md:w-[780px] lg:w-[880px] shrink-0 snap-center rounded-3xl bg-card/95 border transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row items-stretch group/card hover:shadow-xl hover:border-amber-500/40 ${
+              className={`w-[88vw] sm:w-[620px] md:w-[780px] lg:w-[880px] shrink-0 snap-center rounded-2xl sm:rounded-3xl bg-card/95 border transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row items-stretch group/card hover:shadow-xl hover:border-amber-500/40 ${
                 group.isSpotlight
                   ? "border-amber-500/40 bg-gradient-to-r from-amber-500/[0.04] via-card to-card"
                   : "border-border/80 hover:bg-muted/10"
@@ -604,12 +604,12 @@ export default function Skills() {
               )}
 
               {/* Left Metadata Pane (Category Identity) */}
-              <div className="w-full md:w-64 lg:w-72 shrink-0 p-5 sm:p-6 border-b md:border-b-0 md:border-r border-border/60 flex flex-col justify-between bg-muted/20 md:bg-transparent">
+              <div className="w-full md:w-64 lg:w-72 shrink-0 p-4 sm:p-5 md:p-6 pb-3 sm:pb-4 md:pb-6 border-b md:border-b-0 md:border-r border-border/60 flex flex-col justify-between bg-muted/20 md:bg-transparent">
                 <div>
                   {/* Top row in left pane: icon, index, skill count */}
-                  <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="flex items-center justify-between gap-2 mb-2.5 sm:mb-3">
                     <div className="flex items-center gap-2.5">
-                      <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-500 shrink-0">
+                      <div className="p-2 sm:p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-500 shrink-0">
                         {group.icon}
                       </div>
                       <span className="text-xs font-mono text-amber-500 font-semibold px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/20">
@@ -628,14 +628,14 @@ export default function Skills() {
                   </h3>
 
                   {/* Subtitle / Architectural Role */}
-                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+                  <p className="text-xs text-muted-foreground mt-1 sm:mt-1.5 leading-relaxed">
                     {group.subtitle}
                   </p>
                 </div>
 
                 {/* Spotlight Pill at bottom of left pane */}
                 {group.spotlightBadge && (
-                  <div className="mt-4 pt-3 border-t border-border/40 hidden md:block">
+                  <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-border/40 hidden md:block">
                     <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-amber-600 dark:text-amber-400 font-medium">
                       <Flame size={12} className="text-amber-500 shrink-0" />
                       {group.spotlightBadge}
@@ -645,12 +645,12 @@ export default function Skills() {
               </div>
 
               {/* Right Skills Grid Pane (Uniform Brand Pills with Authentic Icons) */}
-              <div className="flex-1 p-5 sm:p-6 flex flex-wrap items-center content-center gap-2 sm:gap-2.5 min-h-[140px]">
+              <div className="flex-1 p-4 sm:p-5 md:p-6 pt-3.5 sm:pt-4 md:pt-6 flex flex-wrap items-start content-start md:items-center md:content-center gap-1.5 sm:gap-2 md:gap-2.5 min-h-0 md:min-h-[140px]">
                 {group.items.length > 0 ? (
                   group.items.map((item) => (
                     <div
                       key={item.name}
-                      className={`group/chip inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-mono border transition-all duration-200 cursor-default select-none ${
+                      className={`group/chip inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[11.5px] sm:text-xs font-mono border transition-all duration-200 cursor-default select-none ${
                         item.highlight
                           ? "bg-amber-500/[0.07] border-amber-500/35 text-foreground hover:border-amber-500 hover:bg-amber-500/[0.14] hover:-translate-y-0.5 shadow-2xs"
                           : "bg-muted/70 hover:bg-amber-500/[0.07] border-border/70 hover:border-amber-500/40 text-foreground/90 hover:text-foreground hover:-translate-y-0.5 shadow-2xs"

@@ -7,7 +7,7 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category: "Client & Freelance" | "Engineering & Stack" | "Projects & Honors";
+  category: "Client & Freelance" | "Jobs & Opportunities" | "Engineering & Stack" | "Projects & Honors";
 }
 
 const faqs: FAQItem[] = [
@@ -23,7 +23,7 @@ const faqs: FAQItem[] = [
     question: "Are you open to internships, full-time roles, and remote opportunities?",
     answer:
       "Yes. I am open to relevant internships and entry-level opportunities in Full-Stack Development and AI Engineering, as well as selected freelance collaborations. I am based in Ranchi, India, and open to remote opportunities with suitable collaboration and scheduling arrangements.",
-    category: "Client & Freelance",
+    category: "Jobs & Opportunities",
   },
   {
     id: "skillfarm-explained",
